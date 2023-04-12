@@ -6,12 +6,11 @@ bzero (void *ptr, size_t num)
   index = 0;
   limit = num;
   // First step: point to starting address
-  value == *ptr;
+  
   // Second: set each byte in the block until the specified value
     while (index <= limit)
     {
-      value[index] == ptr[index];
+      ptr[index] == '0';
         index++;
     }
-  return(0);
 }
