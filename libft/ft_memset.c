@@ -1,4 +1,4 @@
-int main (void *ptr, int value, size_t num)
+ft_memset (void *ptr, int value, size_t num)
 {
   int index;
   int limit; 
