@@ -1,13 +1,15 @@
 
-// malloc ok!!
-
-// malloc + initializing all bytes to zero
-ft_calloc (int num, sizeof(size))
+char	*ft_calloc (int num, sizeof(size))
 {
+	int	index;
+	char *total_size
 	
-	malloc 
-	// num * sizeof = total_size
-	// requesting total_size from the operating system
-	// if allocation fails
-	return ('\0');
+	index = 0;
+	*total_size = malloc * (num * sizeof(size))
+	while (index < num)
+	{
+		total_size[index] = '0';
+		index++;
+	}
+	return (*total_size);
 }
