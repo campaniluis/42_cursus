@@ -14,24 +14,35 @@ char *ft_strtrim(char const *s1, char const *set)
 		s1_len++;
 	while (set[count_set] != '\0')
 		count_set++;
-	output = (char *)malloc(s1_len - count_set + 1)
-	while (index < s1_len)
+	if (s1 == '\0')
+		return(0);
+	else if (s1_len <= count_set)
+	// return new empty string
+		return(); 
+	else
 	{
-		if (s1[index] == set[0])
+		output = (char *)malloc(s1_len - count_set + 1);
+		while (index < s1_len)
 		{
-			while(find_set < count_set)
+			if (s1[index] == set[0])
 			{
-				if s1[index + find_set] == set[find_set]
-					find_set++;
-				else
-			// than it is not the searched string
-					break;
+				while(find_set < count_set)
+				{
+					if (s1[index + find_set] == set[find_set])
+						find_set++;
+					else
+					{
+						find_set = 0;
+						break;
+					}
+				// than it is not the searched string
+				}
+				// if it is, remove it from s1
+				index = index + count_set;
 			}
-			// if it is, remove it from s1
-			index = index + count_set;
+			output [index] = s1[index];
 		}
-		output [index] = s1[index];
+		output[s1_len - count_set] = '\0';
+		return(output);
 	}
-	output[s1_len - count_set] = '\0';
-	return(output);
 }
