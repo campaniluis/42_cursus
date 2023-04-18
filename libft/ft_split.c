@@ -12,25 +12,27 @@ char **ft_split(char const *s, char c)
 	
 
 	// counting the number of substrings
-while (s[index] != '\0')
+	while (s[index] != '\0')
 	{
 		if (s[index] == c)
-			counter++; 
+			counter++;	
 		index++;
 	}
 
-index = 0;
 	// allocate memory for an array of pointers to strings
-	 
-	*output[counter] = (char *)malloc(counter + 1);
-	
+	*output = (char *)malloc(counter + 1);
+	output[counter + 1] = '\0'; 
+	index = 0;
 	while(s[index] != '\0')
 	{
-		// creates a new string
-		output[current_counter][new_str_index] =  
 		
-		// allocate memory for each individual split string. 
+		// allocate memory for each individual split string.
+		// creates a new string
+		output[counter][new_str_index] = (char *)malloc();
+		
 		// iterating over the input string s, 
+			index++;
 		// creating a new string whenever you encounter c.
+		if (s[index] == c)
 	}
 }
