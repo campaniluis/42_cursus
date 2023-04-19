@@ -3,6 +3,8 @@
 // len: La taille maximale de la nouvelle chaîne.
 
 // malloc allowed
+#include <stddef.h>
+#include <stdlib.h>
 
 char *ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -11,7 +13,9 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	
 	index = 0;
 	new_str = (char*)malloc(len + 1); 
-	
+	if (start > len || !s)
+		return(0);
+
 	while (index < len && s[start + index] != '\0')
 	{	
 		// copy the appropriate characters from s into new_str
@@ -24,7 +28,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	else
 	{
 		new_str[len] = '\0';
-		return (*new_str);
+		return (new_str);
 	}
 }
 

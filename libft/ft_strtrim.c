@@ -1,23 +1,51 @@
-char *ft_strtrim(char const *s1, char const *set)
-{
-	int		frst_trg_index;
-	int		last_trg_index;
-	char	*output;
+#include <stdio.h>
+#include <stddef.h>
+#include <unistd.h>
 
-	frst_trg_index = 0;
-	last_trg_index = ft_strlen(s1) -1;
-	while(s1[frst_trg_index]== *set)
-		frst_trg_index++;
-	while(s1[last_trg_index]== *set && last_trg_index > frst_trg_index)
-		last_trg_index--;
-	output = (char*)malloc(last_trg_index - frst_trg_index + 2);
-	if (output == '\0')
-		return ('\0');
-	while (index <= last_trg_index - frst_trg_index)
+char *ft_substr(char const *s, unsigned int start, size_t len);
+int ft_strlen(char *str);
+
+// escrever funcao que vai comparar com todos os caracteres do set
+int	is_set(char  c,char const *set)
+{
+	int	index;
+
+	index = 0;
+	while (set[index])
 	{
-		output[index] = s1[index + frst_trg_index];
+		if (c == set[index])
+			return (1);
 		index++;
 	}
-	output[index] = '\0';
+	return (0);
+}
+
+
+char *ft_strtrim(char const *s1, char const *set)
+{
+	int		i;
+	int		j;
+	char	*output;
+	int		counter;
+
+	i = 0;
+	j = ft_strlen((char *)s1) -1;
+	counter = 0;
+	while(s1[i] && is_set(s1[i], set))
+		i++;
+	while(s1[j] && j > i && is_set(s1[j], set))
+		j--;
+	output = ft_substr(s1, i, j - i + 1);
 	return(output);
+}
+
+int	main()
+{
+	const char		*teste;
+	const char		*set;
+
+	teste = "aaaMARIAaaa";
+	set = "aA";
+
+	printf("A%s\n", ft_strtrim(teste, set));
 }
