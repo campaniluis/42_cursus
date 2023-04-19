@@ -1,4 +1,6 @@
-ft_strjoin(char *s1, char *s2)
+#include "libft.h"
+
+void	ft_strjoin(char *s1, char *s2)
 {
 	// determining the lengths of both input strings
 	int	count1;

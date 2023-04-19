@@ -1,3 +1,5 @@
+#include "libft.h"
+
 // duplicate of a string
 // allocating memory for the duplicate string
 char *ft_strdup (char *str)

@@ -1,16 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 16:03:31 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/12 16:04:33 by lclaudio         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "libft.h"
 
-ft_memmove (void *dest, const void *src, size_t num)
+void  ft_memmove (void *dest, const void *src, size_t num)
 {
   int index;
   int limit;

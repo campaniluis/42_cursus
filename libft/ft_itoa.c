@@ -1,3 +1,5 @@
+#include "libft.h"
+
 char *ft_itoa(int n)
 {
  // Alloue (avec malloc(3)) et 

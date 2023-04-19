@@ -1,11 +1,5 @@
-#include <stdio.h>
-#include <stddef.h>
-#include <unistd.h>
+#include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len);
-int ft_strlen(char *str);
-
-// escrever funcao que vai comparar com todos os caracteres do set
 int	is_set(char  c,char const *set)
 {
 	int	index;
@@ -21,7 +15,7 @@ int	is_set(char  c,char const *set)
 }
 
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		j;
@@ -37,15 +31,4 @@ char *ft_strtrim(char const *s1, char const *set)
 		j--;
 	output = ft_substr(s1, i, j - i + 1);
 	return(output);
-}
-
-int	main()
-{
-	const char		*teste;
-	const char		*set;
-
-	teste = "aaaMARIAaaa";
-	set = "aA";
-
-	printf("A%s\n", ft_strtrim(teste, set));
 }

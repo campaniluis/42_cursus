@@ -1,16 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 09:37:55 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/13 09:37:58 by lclaudio         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "libft.h"
 
-char *ft_strnstr (char *haystack, char *needle, int num)
+char	*ft_strnstr (char *haystack, char *needle, int num)
 {
 	int	index;
 	int	n_size;

@@ -1,16 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 16:03:26 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/12 16:06:08 by lclaudio         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "libft.h"
 
-ft_memcpy (void *dest, const void *src, size_t num)
+void  ft_memcpy (void *dest, const void *src, size_t num)
 {
   int index;
   int limit; 

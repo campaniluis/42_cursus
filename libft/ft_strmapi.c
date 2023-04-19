@@ -1,7 +1,7 @@
-// apply a function to each character in a string and create a new string with the results
-// malloc ok
+#include "libft.h"
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	int		index;
 	int		s_len;
