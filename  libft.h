@@ -1,5 +1,17 @@
-// Include guards 
-// Function prototypes
+
+#ifndef LIBFT_H
+# define LIBFT_H
+
+#include <stdlib.h>
+#include <stdio.h>
+
+// Struct and typedef definitions
+typedef struct s_list
+{
+void *content;
+struct s_list *next;
+} t_list;
+
 
 int		ft_atoi (char *str);
 char	*ft_bzero (void *ptr, int num);
@@ -35,3 +47,5 @@ int		ft_toupper (char lowercase);
 // Constant definitions
 
 // Struct and typedef definitions
+
+#endif
