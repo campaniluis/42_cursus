@@ -1,13 +1,13 @@
 #include "libft.h"
 
-void    ft_isdigit(char *str)
+void	ft_isdigit(char *str)
 {
-	int index;
+	int	index;
 
 	index = 0;
-	while(str[index])
+	while (str[index])
 	{
-		if(str[index] < '0' || '9' < str[index])
+		if (str[index] < '0' || '9' < str[index])
 			return (1);
 		index++;
 	}
