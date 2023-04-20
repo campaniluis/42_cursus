@@ -2,9 +2,9 @@
 
 int	ft_toupper (char lowercase)
 {
-  char uppercase;
+	char	uppercase;
 
-  uppercase = (lowercase - 32);
-    if  (lowercase >= 97 && lowercase <= 122)
-      return(uppercase);
+	uppercase = (lowercase - 32);
+		if (lowercase >= 97 && lowercase <= 122)
+			return(uppercase);
 }

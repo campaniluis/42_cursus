@@ -2,7 +2,7 @@
 
 int ft_atoi (char *str)
 {
- 	int	index;
+	int	index;
 	int	output;
 	
 	index = 0;
