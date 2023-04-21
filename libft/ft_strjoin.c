@@ -1,17 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/21 08:10:11 by lclaudio          #+#    #+#             */
+/*   Updated: 2023/04/21 08:28:48 by lclaudio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_strjoin(char *s1, char *s2)
 {
-	// determining the lengths of both input strings
-	int	count1;
-	int	count2;
-	int index;
+	int		count1;
+	int		count2;
+	int 	index;
 	char	*output;
 
 	count1 = 0;
 	count2 = 0;
 	index = 0;
-
 	while (s1[count1] != '\0')
 		count1++;
 	while (s2[count2] != '\0')

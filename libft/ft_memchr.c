@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/21 08:09:28 by lclaudio          #+#    #+#             */
+/*   Updated: 2023/04/21 08:26:02 by lclaudio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-// search for a specific byte value within a block of memory
-void	ft_memchr (void *ptr, int value, int num);
+void	ft_memchr(void *ptr, int value, int num);
 {
 	int	index;
 

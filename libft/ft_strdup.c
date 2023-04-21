@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/21 08:10:02 by lclaudio          #+#    #+#             */
+/*   Updated: 2023/04/21 08:18:03 by lclaudio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 // duplicate of a string
 // allocating memory for the duplicate string
 char	*ft_strdup (char *str)
 {
-	int	index;
-	int	counter;
+	int		index;
+	int		counter;
 	char	*new_str;
 
 	index = 0;

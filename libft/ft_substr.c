@@ -1,22 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/21 08:11:30 by lclaudio          #+#    #+#             */
+/*   Updated: 2023/04/21 08:26:48 by lclaudio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	index;
-	char *new_str;
-	
-	index = 0;
-	new_str = (char*)malloc(len + 1); 
-	if (start > len || !s)
-		return(0);
+	int		index;
+	char	*new_str;
 
+	index = 0;
+	new_str = (char *)malloc(len + 1);
+	if (start > len || !s)
+		return (0);
 	while (index < len && s[start + index] != '\0')
 	{	
-		// copy the appropriate characters from s into new_str
 		new_str[index] = s[start + index];
 		index++;
 	}
-	// La nouvelle chaîne de caractères.
 	if (s[start + index] == '\0')
 		return (0);
 	else
@@ -25,5 +34,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (new_str);
 	}
 }
-
-  

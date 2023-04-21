@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/21 08:08:52 by lclaudio          #+#    #+#             */
+/*   Updated: 2023/04/21 08:25:03 by lclaudio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int ft_atoi (char *str)
+int	ft_atoi(char *str)
 {
 	int	index;
 	int	output;
-	
+
 	index = 0;
 	output = 0;
 	while (str[index] != '\0')
@@ -27,10 +39,10 @@ int ft_atoi (char *str)
 				output = output * 10 + (str[index] - '0');
 				index++;
 			}
-			break;
+			break ;
 		}
-	else
-		return(0);
+		else
+			return (0);
 	}
 	return (output);
 }
