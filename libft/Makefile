@@ -1,5 +1,5 @@
 NAME = libft.a
-SRCS = ft_*.c libft.h
+SRCS = ft_*.c
 OBJS = $(SRCS:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror .
