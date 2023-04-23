@@ -1,5 +1,5 @@
 NAME = libft.a
-SRCS = ft_atoi.c
+SRCS = ft_*.c
 OBJS = $(SRCS:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
