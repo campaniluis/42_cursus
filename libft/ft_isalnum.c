@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-void	ft_isalnum(char *str)
+int	ft_isalnum(int c);
 {
 	int	index;
 
 	index = 0;
-	while (str[index])
+	while (c[index])
 	{
 		if (str[index] < '0' || '9' < str[index])
 			return (1);
