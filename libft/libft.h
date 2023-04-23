@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:08:22 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/23 12:43:37 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/23 17:08:49 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// Struct and typedef definitions
 typedef struct s_list
 {
 void *content;
 struct s_list *next;
 } t_list;
-
 
 int		ft_atoi (char *str);
 void	ft_bzero(void *ptr, size_t limit);
@@ -34,7 +32,7 @@ int	ft_isdigit(int c);
 int	ft_isprint(int c);
 // char	*ft_itoa(int n);
 // void	ft_memchr (void *ptr, int value, int num);
-int		ft_memcmp (char *ptr1,char *ptr2, int num);
+int	ft_memcmp(const void *str1, const void *str2, size_t num);
 // void	ft_memcpy (void *dest, const void *src, size_t num);
 // void	ft_memmove (void *dest, const void *src, size_t num);
 // void	ft_memset (void *ptr, void value, size_t num);
@@ -53,5 +51,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower (int uppercase);
 int		ft_toupper (int lowercase);*/
+
+// Bonus
 
 #endif

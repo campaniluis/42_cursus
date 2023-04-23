@@ -6,15 +6,13 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:10:02 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:18:03 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/23 16:32:42 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// duplicate of a string
-// allocating memory for the duplicate string
-char	*ft_strdup (char *str)
+char	*ft_strdup(char *str)
 {
 	int		index;
 	int		counter;
@@ -25,6 +23,8 @@ char	*ft_strdup (char *str)
 	while (str[counter] != '\0')
 			counter++;
 	new_str = (char *)malloc(counter + 1);
+	if (new_str == NULL)
+		return (0);
 	while (index < counter)
 	{
 		new_str[index] = str[index];
