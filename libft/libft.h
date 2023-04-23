@@ -27,7 +27,7 @@ struct s_list *next;
 int		ft_atoi (char *str);
 void	ft_bzero(void *ptr, size_t limit)
 // char	*ft_calloc (int num, sizeof(size));
-int	ft_isalnum(int c); // here changed
+int	ft_isalnum(int c);
 int	ft_isalpha(int c); // here changed
 int	ft_isascii(int c); // here changed
 int	ft_isdigit(int c); // here changed
