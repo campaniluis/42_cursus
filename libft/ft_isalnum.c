@@ -14,9 +14,6 @@
 
 int	ft_isalnum(int c);
 {
-	int	index;
-
-	index = 0;
 	while (c[index])
 	{
 		if (str[index] < '0' || '9' < str[index])
@@ -25,7 +22,6 @@ int	ft_isalnum(int c);
 			return (1);
 		else if (str[index] < 'A' || 'Z' < str[index])
 			return (1);
-		index++;
 	}
 	return (0);
 }
