@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:12 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/23 09:52:22 by codespace        ###   ########.fr       */
+/*   Updated: 2023/04/23 13:12:41 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_isascii(int c)
 {
-	if (c > 0 && 127 < c)
-		return (0);
-	else
+	if (c > 0 && 127 > c)
 		return (1);
+	else
+		return (0);
 }
