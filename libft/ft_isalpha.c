@@ -14,7 +14,7 @@
 
 int	ft_isalpha(int c)
 {	
-	if (str[index] < 'a' || 'z' < str[index])
+	if (c < 'a' || 'z' < c)
 		return (1);
 	else if (str[index] < 'A' || 'Z' < str[index])
 		return (1);
