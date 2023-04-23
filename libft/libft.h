@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    libft.h                                           :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:08:22 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:30:12 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/23 10:06:35 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ struct s_list *next;
 
 
 int		ft_atoi (char *str);
-char	*ft_bzero (void *ptr, int num);
+void	ft_bzero(void *ptr, size_t limit)
 // char	*ft_calloc (int num, sizeof(size));
 void	ft_isalnum(char *str);
 void	ft_isalpha(char *str);

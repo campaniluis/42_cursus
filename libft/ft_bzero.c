@@ -1,27 +1,25 @@
 /* ************************************************************************** */
-/*																																						*/
-/*																												:::	 ::::::::	 */
-/*	 ft_bzero.c						 :+:		 :+:	 :+:	 */
-/*																										+:+ +:+	 +:+		*/
-/*	 By: lclaudio <lclaudio@student.42.fr>					+#+ +:+			 +#+				*/
-/*																								+#+#+#+#+#+	+#+		*/
-/*	 Created: 2023/04/21 08:08:57 by lclaudio		#+#	#+#				 */
-/*	 Updated: 2023/04/21 08:13:15 by lclaudio	 ###	 ########.fr			*/
-/*																																						*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/23 10:04:10 by lclaudio          #+#    #+#             */
+/*   Updated: 2023/04/23 10:06:37 by lclaudio         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_bzero(void *ptr, int num)
+void	ft_bzero(void *ptr, size_t limit)
 {
-	int	index;
-	int	limit;
+	size_t	index;
 
 	index = 0;
-	limit = num;
-	while (index <= limit)
+	while (index < limit)
 	{
-		ptr[index] == '0';
+		((char *)ptr)[index] = 0;
 			index++;
 	}
 }
