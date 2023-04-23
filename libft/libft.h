@@ -27,11 +27,11 @@ struct s_list *next;
 int		ft_atoi (char *str);
 void	ft_bzero(void *ptr, size_t limit)
 // char	*ft_calloc (int num, sizeof(size));
-int	ft_isalnum(char *str); // here changed, maybe still has to change
-int	ft_isalpha(char *str); // here changed, maybe still has to change
-int	ft_isascii(char *str); // here changed, maybe still has to change
-int	ft_isdigit(char *str); // here changed, maybe still has to change
-int	ft_isprint(char *str); // here changed a lot, maybe still has to change
+int	ft_isalnum(int c); // here changed
+int	ft_isalpha(int c); // here changed
+int	ft_isascii(int c); // here changed
+int	ft_isdigit(int c); // here changed
+int	ft_isprint(int c); // here changed
 char	*ft_itoa(int n);
 void	ft_memchr (void *ptr, int value, int num);
 int		ft_memcmp (char *ptr1,char *ptr2, int num);
