@@ -1,8 +1,8 @@
 NAME = libft.a
 SRCS = ft_*.c
 OBJS = $(SRCS:.c=.o)
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror .
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
