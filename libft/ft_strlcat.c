@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:10:14 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:28:31 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/23 11:16:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	strlcat(char *src, char *dest, int buffer)
+size_t	strlcat(char *src, char *dest, int buffer)
 {
 	int	index;
 	int	counter;

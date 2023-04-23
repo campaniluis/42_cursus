@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:11:38 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:27:15 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/23 11:20:41 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(char lowercase)
+int	ft_toupper(int lowercase)
 {
-	char	uppercase;
+	int	uppercase;
 
 	uppercase = (lowercase - 32);
 	if (lowercase >= 97 && lowercase <= 122)

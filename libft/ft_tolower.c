@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:11:34 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:20:20 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/23 11:20:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(char uppercase)
+int	ft_tolower(int uppercase)
 {
-	char	lowercase;
+	int	lowercase;
 
 	lowercase = (uppercase - 32);
 	if (uppercase >= 65 && uppercase <= 90)
