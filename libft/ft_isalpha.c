@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:09 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:24:24 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/23 11:26:52 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_isalpha(int c)
 {	
 	if (c < 'a' || 'z' < c)
 		return (1);
-	else if (str[index] < 'A' || 'Z' < str[index])
+	else if (c < 'A' || 'Z' < c)
 		return (1);
 	return (0);
 }
