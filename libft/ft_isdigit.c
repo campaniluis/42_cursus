@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:17 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/23 09:37:28 by codespace        ###   ########.fr       */
+/*   Updated: 2023/04/23 12:29:51 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isdigit(int c)
 {
-	if (str[index] < '0' || '9' < str[index])
+	if (c < '0' || '9' < c)
 		return (1);
 	else
 		return (0);
