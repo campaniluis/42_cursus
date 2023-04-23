@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:08:22 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/23 11:21:57 by codespace        ###   ########.fr       */
+/*   Updated: 2023/04/23 11:23:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ struct s_list *next;
 
 
 int		ft_atoi (char *str);
-void	ft_bzero(void *ptr, size_t limit)
+void	ft_bzero(void *ptr, size_t limit);
 // char	*ft_calloc (int num, sizeof(size));
 int	ft_isalnum(int c);
 int	ft_isalpha(int c);
