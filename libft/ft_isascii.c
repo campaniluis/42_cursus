@@ -3,24 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:12 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:09:14 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/23 09:52:22 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_isascii(char *str)
+int	ft_isascii(int c)
 {
-	int	index;
-
-	index = 0;
-	while (str[index])
-	{
-		if (str[index] < 0 || 127 < str[index])
-			return (0);
-		index++;
-	}
+	if (c > 0 && 127 < c)
+		return (0);
+	else
+		return (1);
 }

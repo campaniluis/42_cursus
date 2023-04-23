@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:57 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:09:58 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/23 09:40:42 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strchr(char *str, char to_find)
+char	*ft_strchr (const char *str, int to_find)
 {
 	int	index;
 

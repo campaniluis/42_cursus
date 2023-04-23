@@ -3,25 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:17 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:16:28 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/23 09:37:28 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_isdigit(char *str)
+int	ft_isdigit(int c)
 {
-	int	index;
-
-	index = 0;
-	while (str[index])
-	{
-		if (str[index] < '0' || '9' < str[index])
-			return (1);
-		index++;
-	}
-	return (0);
+	if (str[index] < '0' || '9' < str[index])
+		return (1);
+	else
+		return (0);
 }

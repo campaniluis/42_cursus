@@ -3,24 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:21 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:16:31 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/23 09:39:13 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_isprint(char *str)
+int	ft_isprint(int c)
 {
-	int	index;
-
-	index = 0;
-	while (str[index])
-	{
-		if (str[index] < 32)
-			return (0);
-		index++;
-	}
+	if (c >= 32 && c < 127)
+		return (0);
 }

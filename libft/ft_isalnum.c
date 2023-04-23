@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:05 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:23:28 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/23 09:36:47 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 int	ft_isalnum(int c);
 {
-	while (c[index])
-	{
-		if (str[index] < '0' || '9' < str[index])
-			return (1);
-		else if (str[index] < 'a' || 'z' < str[index])
-			return (1);
-		else if (str[index] < 'A' || 'Z' < str[index])
-			return (1);
-	}
-	return (0);
+	if (c < '0' || '9' < c)
+		return (1);
+	else if (c < 'a' || 'z' < c)
+		return (1);
+	else if (c < 'A' || 'Z' < c)
+		return (1);
+	else
+		return (0);
 }
