@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:08:22 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/23 11:20:06 by codespace        ###   ########.fr       */
+/*   Updated: 2023/04/23 11:21:57 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	ft_strnstr (const char *haystack, const char *needle, size_t num);
 char	*ft_strrchr (const char *str, int to_find);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-int		ft_tolower (int uppercase); // here changed
-int		ft_toupper (int lowercase); // here changed
+int		ft_tolower (int uppercase);
+int		ft_toupper (int lowercase);
 
 #endif
