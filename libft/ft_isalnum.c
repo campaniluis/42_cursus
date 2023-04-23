@@ -6,13 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:05 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/23 09:36:47 by codespace        ###   ########.fr       */
+/*   Updated: 2023/04/23 11:25:41 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c);
+int	ft_isalnum(int c)
 {
 	if (c < '0' || '9' < c)
 		return (1);
