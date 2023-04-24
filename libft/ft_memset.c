@@ -17,11 +17,11 @@ void	ft_memset(void *ptr, int value, size_t num)
 	size_t	index;
 
 	index = 0;
-	if (value == '\0' || ptr == NULL)
+	if (num <= 0 || ptr == NULL)
 		return (0);
 	while (ptr[index] != '\0' && index < num)
 	{
-		((int *)ptr)[index] = value;
+		((char *)ptr)[index] = value;
 		index++;
 	}
 	return ((void)ptr);
