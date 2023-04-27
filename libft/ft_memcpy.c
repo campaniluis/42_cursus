@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:37 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:09:44 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/27 10:22:00 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 void	ft_memcpy(void *dest, const void *src, size_t num)
 {
-	int	index;
-	int	limit;
+	size_t	index;
 
 	index = 0;
-	limit = num;
-	while (value != '\0' && index <= limit)
+	if (src == NULL)
+		return ;
+	while (index < num)
 	{
-		src[index] == dest[index];
+		((char *)dest)[index] = ((char *)src)[index];
 		index++;
 	}
-	return (0);
 }
