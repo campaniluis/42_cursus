@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/21 08:09:57 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/30 13:09:02 by lclaudio         ###   ########.fr       */
+/*   Created: 2023/04/29 18:41:17 by lclaudio          #+#    #+#             */
+/*   Updated: 2023/04/30 11:29:01 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "unistd.h"
 
-char	*ft_strchr(const char *str, int to_find)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int	index;
+	int		size;
+	char	linebreak;
 
-	index = 0;
-
-	while (str[index] != '\0')
-	{
-		if (str[index] == (char)to_find)
-			return ((char *)&str[index]);
-		index++;
-	}
-	if (to_find == '\0')
-		return ((char *)&str[index]);
-	return (NULL);
+	size = ft_strlen(s);
+	linebreak = '\n';
+	write(fd, s, size);
+	write(fd, &linebreak, 1);
 }

@@ -6,9 +6,12 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:59:10 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/27 11:05:23 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/04/29 18:30:06 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+#include "unistd.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

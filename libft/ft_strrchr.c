@@ -3,21 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:11:17 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/23 11:15:23 by codespace        ###   ########.fr       */
+/*   Updated: 2023/04/30 13:12:26 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr (const char *str, int to_find)
+char	*ft_strrchr(const char *str, int to_find)
 {
 	int	index;
 
-	index = ft_strlen(str) - 1;
-	while (str[index] != to_find && index >= 0)
+	index = ft_strlen((char *)str);
+	while (index >= 0)
+	{
+		if (str[index] == (char)to_find)
+			return (&((char *)str)[index]);
 		index--;
-	return (str[index]);
+	}
+	return (NULL);
 }

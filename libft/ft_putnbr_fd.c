@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/21 08:09:57 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/30 13:09:02 by lclaudio         ###   ########.fr       */
+/*   Created: 2023/04/29 18:46:48 by lclaudio          #+#    #+#             */
+/*   Updated: 2023/04/30 11:11:20 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int to_find)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	index;
+	char	*number;
+	int		size;
 
-	index = 0;
-
-	while (str[index] != '\0')
-	{
-		if (str[index] == (char)to_find)
-			return ((char *)&str[index]);
-		index++;
-	}
-	if (to_find == '\0')
-		return ((char *)&str[index]);
-	return (NULL);
+	number = ft_itoa(n);
+	size = ft_strlen(number);
+	write(fd, number, size);
 }
