@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:08:22 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/01 18:44:56 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/01 19:14:51 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 size_t	strlcat (char *src, char *dest, int buffer);
 // size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int		ft_strlen(char *str);
-// char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 // int		ft_strncmp (char *str1, *char str2, int num);
 // char	ft_strnstr (const char *haystack, const char *needle, size_t num);
 char	*ft_strrchr (const char *str, int to_find);
