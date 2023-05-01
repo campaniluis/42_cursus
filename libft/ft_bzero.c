@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 10:04:10 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/23 10:06:37 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:38:22 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	ft_bzero(void *ptr, size_t limit)
 	while (index < limit)
 	{
 		((char *)ptr)[index] = 0;
-			index++;
+		index++;
 	}
 }

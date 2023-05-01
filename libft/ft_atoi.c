@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:08:52 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/30 13:42:26 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:32:02 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	ft_atoi(char *str)
 	index = 0;
 	output = 0;
 	is_negative = 0;
-	while (ft_strchr(" 0\t\v\f\r\n\f", str[index]))
+	while (ft_strchr(" \t\v\f\r\n\f", str[index]))
 		index++;
-	while (ft_strchr("-+", str[index]))
+	if (ft_strchr("-+", str[index]))
 	{
 		if (str[index] == '-')
 			is_negative = 1;
