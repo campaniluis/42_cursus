@@ -3,26 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:10:17 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/23 11:17:53 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/04 11:45:04 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 {
-	int	index;
-	int	origin_length;
+	size_t	index;
 
 	index = 0;
-	dest = malloc (sizeof(char) * dstsize);
-	while (index <= dstsize)
+	if (dstsize < 1)
+		return (ft_strlen((char *)src));
+	while (index < (dstsize - 1) && src[index] != '\0')
 	{
-		dest[index] = origin[index];
+		dest[index] = src[index];
 		index++;
 	}
-	return (dest);
+	dest[index] = '\0';
+	return (ft_strlen((char *)src));
 }
