@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:08:22 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/05 21:23:33 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:04:10 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
-// char	**ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c);
 char	*ft_strchr (const char *str, int to_find);
 char	*ft_strdup (char *str);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));

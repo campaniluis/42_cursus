@@ -6,11 +6,27 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:54 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/06 16:38:37 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:47:08 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	ft_free_split(char **split)
+{
+	// refazer
+    int	index;
+
+    if (split == NULL)
+        return (0);
+    index = 0;
+    while (split[index])
+    {
+        free(split[index]);
+        index++;
+    }
+    free(split);
+}
 
 int	word_counter(char const *s, char c)
 {
@@ -21,38 +37,48 @@ int	word_counter(char const *s, char c)
 	index = 0;
 	while (s[index])
 	{
-		if (ft_strchr(&s[index], c))
+		if (s[index] != c && (index == 0 || s[index - 1] == c))
 			counter++;
 		index++;
 	}
 	return (counter);
 }
 
-int	word_length(char const *s, char c)
+int	word_length(const char *s, char c)
 {
 	int	index;
 
 	index = 0;
-	while (s[index] != 0 && !ft_strchr(&s[index], c))
+	while (s[index] != c && s[index])
 		index++;
 	return (index);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char 	*cabinet;
-	char 	**drawers;
+	char	**cabinet;
 	int		counter;
 	int		index;
 
 	index = 0;
 	counter = 0;
-	cabinet = malloc((word_counter(s, c) + 1) * sizeof(char))
-	while (s)
+	cabinet = (char **)malloc((word_counter(s, c) + 1) * sizeof(char *));
+	if (!cabinet)
+		return (NULL);
+	while (s[index])
 	{
-		*drawers[counter] = malloc(word_length(&s[index], c) * char);
-		counter++;
+		if (s[index] != c && (index == 0 || s[index - 1] == c))
+		{
+			cabinet[counter] = ft_substr(&s[index], 0, word_length(&s[index], c));
+			if (!cabinet[counter])
+			{
+				ft_free_split(cabinet);
+				return (NULL);
+			}
+			counter++;
+		}
+		index++;
 	}
-	retur
-
+	cabinet[counter] = NULL;
+	return (cabinet);
 }
