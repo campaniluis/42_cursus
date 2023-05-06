@@ -6,15 +6,16 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:08:22 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/04 12:02:45 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/05 21:23:33 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef		LIBFT_H
 # define	LIBFT_H
 
-#include <stdlib.h>
-#include <stdio.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
@@ -40,20 +41,20 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
-char	**ft_split(char const *s, char c);
+// char	**ft_split(char const *s, char c);
 char	*ft_strchr (const char *str, int to_find);
 char	*ft_strdup (char *str);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-char	*ft_strjoin(char *s1, char *s2); 
+// char	*ft_strjoin(char *s1, char *s2); 
 size_t	ft_strlcat (char *dest, const char *src, size_t size);
 size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize);
 int		ft_strlen(char *str);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int	    ft_strncmp(const char *s1, const char *s2, size_t n);
-char	ft_strnstr (const char *haystack, const char *needle, size_t num);
+char	*ft_strnstr (const char *haystack, const char *needle, size_t num);
 char	*ft_strrchr (const char *str, int to_find);
 char	*ft_strtrim(char const *s1, char const *set);
-char	*ft_substr(char const *s, unsigned int start, size_t len);*/
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower (int c);
 int		ft_toupper (int c);
 

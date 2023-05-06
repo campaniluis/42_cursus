@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:11:14 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/23 11:19:19 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/06 16:05:57 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,16 @@
 char	*ft_strnstr(const char *haystack, const char *needle, size_t num)
 {
 	size_t	index;
-	size_t	n_size;
+	size_t	size_needle;
 
 	index = 0;
-	n_size = 0;
-	while (needle[n_size] != '\0')
-		n_size++;
-	while ((needle[index] || haystack[index]) != '\0' && index < num)
-	{	
-		if (needle[index] == haystack[index])
-		{
-			while (needle[index] == haystack[index])
-				index++;
-			return (haystack[index - n_size]);
-		}
+	size_needle = ft_strlen((char *)needle);
+	if (size_needle == 0)
+		return ((char *)haystack);
+	while (haystack[index] && index < (num - size_needle + 1) && num > 0)
+	{
+		if (ft_strncmp(&((char *)haystack)[index], needle, size_needle) == 0)
+			return (&((char *)haystack)[index]);
 		index++;
 	}
 	return (0);

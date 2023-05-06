@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:11:30 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:26:48 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/05 21:24:54 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		index;
+	size_t	index;
 	char	*new_str;
 
 	index = 0;

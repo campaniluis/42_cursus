@@ -6,36 +6,53 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:54 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:17:50 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/06 16:38:37 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+int	word_counter(char const *s, char c)
 {
-	char	**output;
-	char	*new_str;
-	int		index;
-	int		new_str_index;
-	int		counter;
+	int	counter;
+	int	index;
 
-	index = 0;
-	new_str_index = 0;
 	counter = 0;
-	while (s[index] != '\0')
+	index = 0;
+	while (s[index])
 	{
-		if (s[index] == c)
-			counter++;	
+		if (ft_strchr(&s[index], c))
+			counter++;
 		index++;
 	}
-	*output = (char *)malloc(counter + 1);
-	output[counter + 1] = '\0';
+	return (counter);
+}
+
+int	word_length(char const *s, char c)
+{
+	int	index;
+
 	index = 0;
-	while (s[index] != '\0')
+	while (s[index] != 0 && !ft_strchr(&s[index], c))
+		index++;
+	return (index);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char 	*cabinet;
+	char 	**drawers;
+	int		counter;
+	int		index;
+
+	index = 0;
+	counter = 0;
+	cabinet = malloc((word_counter(s, c) + 1) * sizeof(char))
+	while (s)
 	{
-		output[counter][new_str_index] = (char *)malloc();
-			index++;
-		if (s[index] == c)
+		*drawers[counter] = malloc(word_length(&s[index], c) * char);
+		counter++;
 	}
+	retur
+
 }
