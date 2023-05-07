@@ -12,22 +12,6 @@
 
 #include "libft.h"
 
-void	ft_free_split(char **split)
-{
-	// refazer
-    int	index;
-
-    if (split == NULL)
-        return (0);
-    index = 0;
-    while (split[index])
-    {
-        free(split[index]);
-        index++;
-    }
-    free(split);
-}
-
 int	word_counter(char const *s, char c)
 {
 	int	counter;
@@ -37,21 +21,32 @@ int	word_counter(char const *s, char c)
 	index = 0;
 	while (s[index])
 	{
-		if (s[index] != c && (index == 0 || s[index - 1] == c))
+		if (ft_strchr(&s[index], c))
 			counter++;
 		index++;
 	}
 	return (counter);
 }
 
-int	word_length(const char *s, char c)
+int	word_length(char const *s, char c)
 {
 	int	index;
 
 	index = 0;
-	while (s[index] != c && s[index])
+	while (s[index] != 0 && !ft_strchr(&s[index], c))
 		index++;
 	return (index);
+}
+
+void	*write_word(char *cabinet[counter], const char *s, int index, char c)
+{
+	ft_strlcpy((const char *)cabinet[counter], s, word_length(&s[index], char c));
+	cabinet[word_length(&s[index], c) + 1] = '\0';
+	return (0);
+}
+
+void free_malloc(char *s, int size)
+{
 }
 
 char	**ft_split(char const *s, char c)
@@ -59,26 +54,23 @@ char	**ft_split(char const *s, char c)
 	char	**cabinet;
 	int		counter;
 	int		index;
+	int		len;
 
 	index = 0;
 	counter = 0;
-	cabinet = (char **)malloc((word_counter(s, c) + 1) * sizeof(char *));
+	cabinet = (char **)malloc((word_counter(s, c) + 1) * sizeof(char));
 	if (!cabinet)
-		return (NULL);
+		return (free);
 	while (s[index])
 	{
-		if (s[index] != c && (index == 0 || s[index - 1] == c))
-		{
-			cabinet[counter] = ft_substr(&s[index], 0, word_length(&s[index], c));
-			if (!cabinet[counter])
-			{
-				ft_free_split(cabinet);
-				return (NULL);
-			}
-			counter++;
-		}
-		index++;
+		len = word_length(&s[index], c);
+		cabinet[counter] = (char **)malloc((len + 1) * sizeof(char));
+		if (!cabinet[counter])
+			free_malloc;
+			return (0);
+		write_word(cabinet, s, index, c);
+		index = index + word_length(&s[index], c);
+		counter++;
 	}
-	cabinet[counter] = NULL;
-	return (cabinet);
+	return (&*cabinet);
 }
