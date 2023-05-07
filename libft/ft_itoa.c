@@ -12,29 +12,75 @@
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+char	*extr_or_zero(int n)
 {
-	int		index;
-	char	*output;
-	int		is_negative;
-
-	index = 0;
-	 // Alloue (avec malloc(3)) et 
-	is_negative = 0;
 	if (n == 0)
-		return ("0");
-	while (n != 0)
+		return (ft_strdup("0"));
+	else if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	else
+		return (ft_strdup("2147483647"));
+}
+
+static int	power(int index)
+{
+	int	power;
+
+	power = 1;
+	while (index > 1)
 	{
-		n /= 10;
-		++index;
+		power = power * 10;
+		--index;
 	}
-	// Les nombres négatifs doivent être gérés.
+	return (power);
+}
+
+char	*itoa_write(int index, int n, char *str)
+{
+	int		counter;
+	int		buff;
+
+	counter = 0;
+	buff = index;
 	if (n < 0)
 	{
-		output = malloc (sizeof(char) * index + 2);
-		output[0] = '-';
+		n = n * -1;
+		str[counter++] = '-';
+		index--;
 	}
-	output = malloc (sizeof(char) * index + 1);
-	//retourne une string représentant l’entier ’n’. 
-	return (output);
+	while (counter < buff)
+	{
+		str[counter++] = ((n / power(index)) + 48);
+		n = (n % power(index--));
+	}
+	return (str);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		flag;
+	int		index;
+	int		counter;
+	int		buff;
+
+	flag = (n < 0);
+	index = 0 + flag;
+	counter = 0 + flag;
+	buff = n;
+	if (n == 0 || n == -2147483648 || n == 2147483647)
+	{
+		str = extr_or_zero(n);
+		return (str);
+	}
+	while (buff != 0)
+	{
+		buff /= 10;
+		++index;
+	}
+	str = ft_calloc (sizeof(char), (index + 1));
+	if (!str)
+		return (0);
+	str = itoa_write(index, n, str);
+	return (str);
 }
