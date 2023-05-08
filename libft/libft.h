@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:08:22 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/07 20:47:23 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/08 10:40:07 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include <stdio.h>
 # include <unistd.h>
 
-typedef struct s_list
+typedef struct	s_list
 {
-void *content;
-struct s_list *next;
-} t_list;
+void			*content;
+struct s_list	*next;
+}				t_list;
 
 // Normais
 int		ft_atoi(char *str);
