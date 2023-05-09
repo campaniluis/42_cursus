@@ -18,7 +18,7 @@ SRCS = 	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c 
  BONUS = ft_lstnew.c 
 
 OBJS = $(SRCS:.c=.o)
-BOBJS = $(BONUS:.c=.o)
+BONUS_OBJS = $(BONUS:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -29,14 +29,14 @@ $(NAME): $(OBJS)
 	ranlib $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $==(BONUS_OBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
 bonus: $(NAME)
 
-$(NAME): $(BOBJS)
+$(NAME): $(BONUS_OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
