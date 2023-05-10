@@ -25,8 +25,7 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+	ar rcs $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
@@ -34,8 +33,8 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-bonus: $(NAME): $(BONUS_OBJS)
-	ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus: $(NAME) $(BONUS_OBJS)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 re: fclean all
 
