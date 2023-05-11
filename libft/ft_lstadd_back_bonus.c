@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:07:25 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/11 16:22:54 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:48:55 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	
+	new->next = lst;
 }
