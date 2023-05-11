@@ -6,13 +6,13 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:28 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/03 13:30:32 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:28:26 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr (const void *ptr, int value, size_t num)
+void	*ft_memchr(const void *ptr, int value, size_t num)
 {
 	size_t	index;
 
