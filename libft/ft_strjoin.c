@@ -6,35 +6,20 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:10:11 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/12 16:04:53 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:29:23 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		count1;
-	int		count2;
-	int 	index;
-	char	*output;
+	char	*new;
 
-	count1 = 0;
-	count2 = 0;
-	index = 0;
-	
-	output = (char *)malloc(sizeof(count1 + count2 +1))
-	while (index < count1)
-	{
-		output[index] = s1[index];
-		index++;
-	}
-
-	index = 0;
-	while (index < count2)
-	{
-		output[count1 + index] = s2[index];
-		index++;
-	}
-	return (output);
+	new = ft_calloc(sizeof(char), (ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1));
+	if (!new)
+		return (NULL);
+	ft_strlcpy(new, s1, ft_strlen((char *)s1) + 1);
+	ft_strlcat(new, s2, ft_strlen((char *)s2) + ft_strlen((char *)s1) + 1);
+	return (new);
 }
