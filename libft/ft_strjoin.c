@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:10:11 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/06 15:29:05 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:04:53 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,19 @@ char	ft_strjoin(char *s1, char *s2)
 	count1 = 0;
 	count2 = 0;
 	index = 0;
-	while (s1[count1] != '\0')
-		count1++;
-	while (s2[count2] != '\0')
-		count2++;
-	if (count1 == 0 || count2 == 0)
-		return (0);
-	else
+	
+	output = (char *)malloc(sizeof(count1 + count2 +1))
+	while (index < count1)
 	{
-		output = (char *)malloc(sizeof(count1 + count2 +1))
-		while (index < count1)
-		{
-			output[index] = s1[index];
-			index++;
-		}
-
-		index = 0;
-		while (index < count2)
-		{
-			output[count1 + index] = s2[index];
-			index++;
-		}
-		return (output);
+		output[index] = s1[index];
+		index++;
 	}
+
+	index = 0;
+	while (index < count2)
+	{
+		output[count1 + index] = s2[index];
+		index++;
+	}
+	return (output);
 }

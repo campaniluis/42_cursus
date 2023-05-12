@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:08:21 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/12 15:12:11 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/12 15:32:07 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*buff;
 
-	buff = ft_lstlast(*lst);
-	if (ft_lstsize(*lst) == 1)
-		
-	while (buff != *lst)
+	buff = *lst;
+	while (buff)
 	{
-		ft_lstdelone(buff, del);
-		buff = ft_lstlast(*lst);
+		buff = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = buff;
 	}
-	if (buff == *lst)
-		del(*lst);
 }
