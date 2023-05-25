@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:11:27 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:27:52 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/22 11:06:37 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 	while (s1[j] && j > i && is_set(s1[j], set))
 		j--;
-	output = ft_substr(s1, i, j - i + 1);
+	output = ft_substr(s1, i, (j - i + 1));
 	return (output);
 }
