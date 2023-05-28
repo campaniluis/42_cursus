@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:11:27 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/22 11:06:37 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/28 19:08:20 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	int		j;
 	char	*output;
-	int		counter;
 
 	i = 0;
 	j = ft_strlen((char *)s1) - 1;

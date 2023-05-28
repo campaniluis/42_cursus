@@ -6,20 +6,16 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 18:41:17 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/30 11:29:01 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/28 18:09:46 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "unistd.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int		size;
-	char	linebreak;
-
-	size = ft_strlen(s);
-	linebreak = '\n';
-	write(fd, s, size);
-	write(fd, &linebreak, 1);
+	if (!s)
+		return ;
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
