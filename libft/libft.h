@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:08:22 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/27 11:54:22 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/28 18:01:19 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ struct s_list	*next;
 }				t_list;
 
 // Normais
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 void	ft_bzero(void *ptr, size_t limit);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_isalnum(int c);
@@ -42,14 +42,14 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
-// char	**ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c);
 char	*ft_strchr (const char *str, int to_find);
 char	*ft_strdup (char *str);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strjoin(char const *s1, char const *s2); 
 size_t	ft_strlcat (char *dest, const char *src, size_t size);
 size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize);
-size_t	ft_strlen(char *str);
+size_t	ft_strlen(const char *str);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr (const char *haystack, const char *needle, size_t num);

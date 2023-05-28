@@ -6,13 +6,13 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:08:52 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/27 11:53:33 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/28 18:01:06 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	index;
 	int	output;
