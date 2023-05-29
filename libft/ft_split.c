@@ -105,7 +105,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 
 
-int	word_counter(char	*s, char c)
+int	word_counter(const char	*s, char c)
 {
 	int	counter;
 	int	index;
@@ -117,7 +117,7 @@ int	word_counter(char	*s, char c)
 		while (s[index] && s[index] == c)
 			index++;
 		if (s[index] && s[index] != c)
-			counter++
+			counter++;
 		while (s[index] && s[index] != c)
 			index++;
 	}
@@ -174,7 +174,8 @@ char	**ft_split(char const *s, char c)
 				return (0);
 			}
 			cabinet[counter] = ft_substr(s, index, len);
-			index = (index + word_length(&s[index], c));
+			printf("%s\n", cabinet[counter]);
+			index = (index + len);
 			counter++;
 		}
 	}
