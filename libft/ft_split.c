@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:54 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/29 12:43:00 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/29 16:33:23 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ size_t	word_length(char const *s, char c)
 	return (index);
 }
 
-void	free_malloc(char **s, int size)
+char	**free_malloc(char **s, int size)
 {
 	while (size > -1)
 	{
@@ -49,6 +49,7 @@ void	free_malloc(char **s, int size)
 		size--;
 	}
 	free(s);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -56,7 +57,6 @@ char	**ft_split(char const *s, char c)
 	char	**cabinet;
 	int		counter;
 	int		index;
-	size_t	len;
 
 	index = 0;
 	counter = 0;
@@ -71,17 +71,10 @@ char	**ft_split(char const *s, char c)
 			index++;
 		if (s[index] && s[index] != c)
 		{
-			len = word_length(&s[index], c);
-			//cabinet[counter] = malloc((len + 1) * sizeof(char));
-			cabinet[counter] = ft_substr(s, index, len);
-			if (!cabinet[counter])
-			{
-				free_malloc(cabinet, counter);
-				return (0);
-			}
-			cabinet[counter][len] = 0;
-			index = (index + len);
-			counter++;
+			cabinet[counter] = ft_substr(s, index, word_length(&s[index], c));
+			if (!cabinet[counter++])
+				return (free_malloc(cabinet, --counter));
+			index = (index + word_length(&s[index], c));
 		}
 	}
 	cabinet[counter] = NULL;

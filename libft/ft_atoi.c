@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:08:52 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/29 13:07:09 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/29 15:31:52 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,8 @@ int	ft_atoi(const char *str)
 		index++;
 	}
 	while (str[index] >= '0' && str[index] <= '9')
-	{
-			output = output * 10 + (str[index] - '0');
-			index++;
-	}
+			output = output * 10 + (str[index++] - '0');
 	if (is_negative == 1)
 		output = (output * -1);
 	return (output);
 }
-
-// int main(void)
-// {
-// 	printf("%d\n", ft_atoi(" "));
-// 	printf("%d\n", atoi(" "));
-// 	printf("%d\n", ft_atoi(""));
-// 	printf("%d\n", atoi(""));
-
-// }
