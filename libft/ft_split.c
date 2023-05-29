@@ -104,19 +104,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 
 
-char	*parse_string(char *s, char c)
-{
-	size_t	index;
-	size_t	len;
-
-	index = 0;
-	len = ft_strlen(s);
-	while (s[index] == c)
-		index++;
-	while (s[len] == c)
-		len--;
-	return (ft_substr(s, index, len));
-}
 
 int	word_counter(char	*s, char c)
 {
@@ -127,9 +114,12 @@ int	word_counter(char	*s, char c)
 	index = 0;
 	while (s[index])
 	{
-		if (s[index] == c)
-			counter++;
-		index++;
+		while (s[index] && s[index] == c)
+			index++;
+		if (s[index] && s[index] != c)
+			counter++
+		while (s[index] && s[index] != c)
+			index++;
 	}
 	return (counter);
 }
@@ -139,7 +129,7 @@ size_t	word_length(char	const	*s, char c)
 	int	index;
 
 	index = 0;
-	while (s[index] != '\0' && s[index] != c)
+	while (s[index] && s[index] != c)
 		index++;
 	return (index);
 }
@@ -159,7 +149,6 @@ void	free_malloc(char **s, int size)
 char	**ft_split(char const *s, char c)
 {
 	char	**cabinet;
-	char	*buff;
 	int		counter;
 	int		index;
 	size_t	len;
@@ -168,24 +157,26 @@ char	**ft_split(char const *s, char c)
 	counter = 0;
 	if (!s)
 		return (NULL);
-	buff = (char *)s;
-	buff = parse_string(buff, c);
-	cabinet = (char **)malloc((word_counter(buff, c) + 1) * sizeof(char));
+	cabinet = (char **)malloc((word_counter(s, c) + 1) * sizeof(char));
 	if (!cabinet)
 		return (0);
-	while (buff[index])
+	while (s[index])
 	{
-		len = word_length(&buff[index], c);
-		cabinet[counter] = (char *)malloc((len + 1) * sizeof(char));
-		if (!cabinet[counter])
+		while (s[index] && s[index] == c)
+			index++;
+		if (s[index] && s[index] != c)
 		{
-			free_malloc(cabinet, counter);
-			return (0);
+			len = word_length(&s[index], c);
+			cabinet[counter] = (char *)malloc((len + 1) * sizeof(char));
+			if (!cabinet[counter])
+			{
+				free_malloc(cabinet, counter);
+				return (0);
+			}
+			cabinet[counter] = ft_substr(s, index, len);
+			index = (index + word_length(&s[index], c));
+			counter++;
 		}
-		cabinet[counter] = ft_substr(buff, index, len);
-		index = (index + word_length(&buff[index], c));
-		counter++;
-		index++;
 	}
 	cabinet[counter] = NULL;
 	return (cabinet);
