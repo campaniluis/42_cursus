@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:08:52 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/28 18:01:06 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/29 13:07:09 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int	ft_atoi(const char *str)
 	index = 0;
 	output = 0;
 	is_negative = 0;
-	while (ft_strchr(" \t\v\f\r\n\f", str[index]))
+	if (ft_strlen(str) == 0)
+		return (0);
+	while (ft_strchr(" \t\v\f\r\n", str[index]))
 		index++;
 	if (ft_strchr("-+", str[index]))
 	{
@@ -40,3 +42,12 @@ int	ft_atoi(const char *str)
 		output = (output * -1);
 	return (output);
 }
+
+// int main(void)
+// {
+// 	printf("%d\n", ft_atoi(" "));
+// 	printf("%d\n", atoi(" "));
+// 	printf("%d\n", ft_atoi(""));
+// 	printf("%d\n", atoi(""));
+
+// }

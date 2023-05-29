@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:11:27 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/28 19:08:20 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/05/29 12:08:17 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	j = ft_strlen((char *)s1) - 1;
-	counter = 0;
 	while (s1[i] && is_set(s1[i], set))
 		i++;
 	while (s1[j] && j > i && is_set(s1[j], set))
