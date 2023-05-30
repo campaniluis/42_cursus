@@ -18,13 +18,13 @@
 # include <unistd.h>
 
 // get_next_line_utils.c
-// char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *str);
 
 // get_next_line.c
 // char	*get_next_line(int fd);
 char    *read_file(const char *str);
-// size_t  find_newline(char *str, );
+size_t find_newline(const char *str);
 
 
 #endif

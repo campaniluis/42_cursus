@@ -29,16 +29,16 @@ char *read_file(const char *str)
 	return (buff);
 }
 
-// // uma função pra encontrar o \n
-// size_t find_newline(char *str, )
-// {
-// 	size_t	index;
+// uma função pra encontrar o \n
+size_t find_newline(const char *str)
+{
+	size_t	index;
 
-// 	index = 0;
-// 	while (str[index] && str[index] != '\n')
-// 		index++;
-// 	return(index);
-// }
+	index = 0;
+	while (str[index] && str[index] != '\n')
+		index++;
+	return(index);
+}
 
 // char	*get_next_line(int fd)
 // {
@@ -57,8 +57,20 @@ char *read_file(const char *str)
 int	main(void)
 {
 	const char *str;
+	size_t		index;
+	size_t		line_size;
 
+	index = 0;
 	str = "I am the first line\nI am the second line\nThe third line is the last";
-	printf("%s\n", read_file(str));
+	printf("Original string:\n%s\n\n", read_file(str));
+	while(str[index])
+	{
+		printf("Current string:%s\n", str);
+		line_size = find_newline(str);
+		printf("Line size:%ld\n", line_size);
+		str = ft_substr(str, index, line_size);
+		printf("Current string:%s\n", str);
+		index = index + line_size;
+	}
 	return (0);
 }
