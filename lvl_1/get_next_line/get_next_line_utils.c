@@ -46,3 +46,28 @@ size_t	ft_strlen(const char *str)
 	}
 	return (index);
 }
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*new;
+	size_t	index;
+	size_t	counter;
+
+	new = ft_calloc(sizeof(char), ft_strlen((char *)s1)
+			+ ft_strlen((char *)s2) + 1);
+	if (!new)
+		return (NULL);
+	index = 0;
+	while (s1[index])
+	{
+		new[index] = s1[index];
+		index++;
+	}
+	counter = 0;
+	while (s2[counter])
+	{
+		new[index + counter] = s2[counter];
+		counter++;
+	}
+	return (new);
+}
