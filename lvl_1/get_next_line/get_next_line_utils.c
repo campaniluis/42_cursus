@@ -12,42 +12,37 @@
 
 #include "get_next_line.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t		index;
-	size_t		size;
-	char		*new_str;
+// char	*ft_substr(char const *s, unsigned int start, size_t len)
+// {
+// 	size_t		index;
+// 	size_t		size;
+// 	char		*new_str;
 
-	index = 0;
-	size = ft_strlen((char *)s);
-	while (index < len && index + start < size)
-		index++;
-	new_str = (char *)malloc(sizeof(char) * index + 1);
-	if (!new_str)
-		return (NULL);
-	index = 0;
-	while (index < len && index + start < size && s[start])
-	{	
-		new_str[index] = s[start + index];
-		index++;
-	}
-	new_str[index] = '\0';
-	return (new_str);
-}
+// 	index = 0;
+// 	size = ft_strlen((char *)s);
+// 	while (index < len && index + start < size)
+// 		index++;
+// 	new_str = (char *)malloc(sizeof(char) * index + 1);
+// 	if (!new_str)
+// 		return (NULL);
+// 	index = 0;
+// 	while (index < len && index + start < size && s[start])
+// 	{	
+// 		new_str[index] = s[start + index];
+// 		index++;
+// 	}
+// 	new_str[index] = '\0';
+// 	return (new_str);
+// }
 
-// uma função pra ler o ficheiro 
-char *read_file()
-{
-	static char	*buff;
-
-	return (str);
-}
-// uma função pra encontrar o \n
-size_t find_newline(char *str, )
+size_t	ft_strlen(const char *str)
 {
 	size_t	index;
 
 	index = 0;
-	while (str[index] && str[index] != '\n')
-		index++
+	while (str[index])
+	{
+		index++;
+	}
+	return (index);
 }
