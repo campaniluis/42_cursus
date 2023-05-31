@@ -43,23 +43,6 @@ size_t line_size(char *str)
 }
 
 // Stores in the cumulative static variable the new updated variable with whatever is left from the original, minus the line extracted.
-// Function not used
-char *remaining_text(char *str, size_t counter)
-{
-	char *rest_of_line;
-
-	rest_of_line = malloc(sizeof(char) * (counter + 1));
-	if (!rest_of_line)
-		return (NULL);
-	while (str[counter])
-	{
-		rest_of_line[counter] = str[counter];
-		counter++;
-	}
-	free(str);
-	return (rest_of_line);
-}
-
 // function to complete line if BUFF_SIZE < line_size
 char *complete_line(size_t counter, char *str)
 {
