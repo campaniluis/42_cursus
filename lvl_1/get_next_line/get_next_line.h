@@ -21,17 +21,19 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <fcntl.h>
 
 // get_next_line_utils.c
 void	ft_bzero(void *ptr, size_t limit);
 void	*ft_calloc(size_t nmemb, size_t size);
 size_t	ft_strlen(const char *str);
-char	*ft_strchr(const char *str, int to_find)
+char	*ft_strchr(const char *str, int to_find);
 char	*ft_strjoin(char const *s1, char const *s2);
 
 // get_next_line.c
-char    *read_file(int fd, char *str);
-size_t find_newline(char *str);
+char    *get_line(int fd, char *str);
+char    *line_size(char *str);
+size_t  find_newline(char *str);
 char	*get_next_line(int fd);
 
 #endif
