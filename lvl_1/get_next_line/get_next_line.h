@@ -14,9 +14,9 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#ifndef BUFF_SIZE
-# define BUFF_SIZE 100
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100
+# endif
 
 # include <stdlib.h>
 # include <stdio.h>
@@ -31,7 +31,7 @@ char	*ft_strchr(const char *str, int to_find);
 char	*ft_strjoin(char const *s1, char const *s2);
 
 // get_next_line.c
-char    *get_line(int fd, char *str);
+char    *get_line(char *str);
 size_t  line_size(char *str);
 char    *complete_line(size_t counter, char *str);
 char	*get_next_line(int fd);
