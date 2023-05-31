@@ -12,3 +12,7 @@
 
 #include "libprintf.h"
 
+char *printf(int count, ...)
+{
+    
+}

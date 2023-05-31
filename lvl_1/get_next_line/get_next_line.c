@@ -43,6 +43,7 @@ size_t line_size(char *str)
 }
 
 // Stores in the cumulative static variable the new updated variable with whatever is left from the original, minus the line extracted.
+// Function not used
 char *remaining_text(char *str, size_t counter)
 {
 	char *rest_of_line;
@@ -98,8 +99,8 @@ char	*get_next_line(int fd)
 
 int main(void)
 {
-	char *line;
-	int fd;
+	char 	*line;
+	int		fd;
 
 	fd = open("text.txt", O_RDONLY);
 	line = get_next_line(fd);
