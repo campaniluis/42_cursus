@@ -13,69 +13,76 @@
 #include "get_next_line.h"
 #include <stdlib.h>
 
-// uma função pra ler o ficheiro 
-char *read_file(const char *str)
+// Extracts the line (ending in either line break and `\0` or only `\0` in EOF) from static variable.
+char *get_line(char *str, size_t buff_size)
 {
-	int			index;
+	int i;
+	char *line;
 
-	index = 0;
-	while (str[index])
-	{
-		buff[index] = str[index];
-		index++;
-	}
-	return (buff);
+	i = 0;
+	while (str[i] && str[i] != '\n')
+		i++;
+	line = malloc(sizeof(char) * (i + 1));
+	return (line);
 }
 
-// uma função pra encontrar o \n
-size_t get_line(char *buff)
+// function to measure line
+size_t line_size(char *str)
 {
-	size_t	index;
+	size_t index;
 
 	index = 0;
 	while (str[index] && str[index] != '\n')
 		index++;
- 	buff = malloc(sizeof(char) * (index + 2));
-	buff[index++] = '\n';
-	buff[index] = '\0';
-	return(buff);
+	return (index);
+}
+
+// Stores in the cumulative static variable the new updated variable with whatever is left from the original, minus the line extracted.
+char *remaining_text(char *str, size_t counter)
+{
+	char *rest_of_line;
+
+	rest_of_line = malloc(sizeof(char) * (counter + 1));
+	if (!rest_of_line)
+		return (NULL);
+	free(str);
+	str = rest_of_line;
+	return (rest_of_line);
+}
+
+// function to complete line if BUFF_SIZE < line_size
+char *complete_line(size_t counter, char *str)
+{
+	char 			*line;
+	char 			*rest_of_line;
+	static size_t 	current_buff_size;
+	size_t 			buff_size;
+
+	buff_size = BUFF_SIZE;
+	line = get_line(str);
+	counter = line_size(str);
+	rest_of_line = malloc(sizeof(char) * buff_size);
+	if (!rest_of_line)
+		return (NULL);
+	free(str);
+	str = rest_of_line;
+	if (current_buff_size < counter)
+		complete_line(counter, str);
+	current_buff_size = (current_buff_size + buff_size);
+	return (rest_of_line);
 }
 
 char	*get_next_line(int fd)
 {
-	char	*next_line;
-	char	*buff;
 	static char	*str;
-	size_t	counter;
+	char		*buff;
+	size_t		counter;
 
-	while (str[index] && str[index] != '\n')
-		buff[index] = str[index++];
-	buff = find_newline(buff);
-	counter = 0;
-	next_line = read(fd, (void *)buff, buff);
-	if (!next_line)
-		return (-1);
-	return (1);
-}
-
-int	main(void)
-{
-	size_t		index;
-	size_t		line_size;
-	static char	*buff;
-
-
-	index = 0;
-	str = "I am the first line\nI am the second line\nThe third line is the last";
-	printf("Original string:\n%s\n\n", read_file(str));
-	while(str[index])
-	{
-		printf("Current string:\n%s\n", read_file(str));
-		line_size = find_newline(str);
-		printf("Line size:%ld\n", line_size);
-		str = read(fd, (void *)buff, str);
-		printf("Post substr string:%s\n\n", str);
-		index = index + line_size;
-	}
-	return (0);
+	if (str == NULL)
+		str = ft_calloc(1, sizeof(char));}
+	buff = malloc(sizeof(char) * (BUFF_SIZE + 1));
+	buff = get_line(str);
+	counter = line_size(str);
+	if (BUFF_SIZE < counter)
+		ft_strjoin(buff, complete_line(counter, str));
 }

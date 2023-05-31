@@ -12,29 +12,6 @@
 
 #include "get_next_line.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t		index;
-	size_t		size;
-	char		*new_str;
-
-	index = 0;
-	size = ft_strlen((char *)s);
-	while (index < len && index + start < size)
-		index++;
-	new_str = (char *)malloc(sizeof(char) * index + 1);
-	if (!new_str)
-		return (NULL);
-	index = 0;
-	while (index < len && index + start < size && s[start])
-	{	
-		new_str[index] = s[start + index];
-		index++;
-	}
-	new_str[index] = '\0';
-	return (new_str);
-}
-
 size_t	ft_strlen(const char *str)
 {
 	size_t	index;
@@ -45,6 +22,45 @@ size_t	ft_strlen(const char *str)
 		index++;
 	}
 	return (index);
+}
+
+void	ft_bzero(void *ptr, size_t limit)
+{
+	size_t	index;
+
+	index = 0;
+	while (index < limit)
+	{
+		((char *)ptr)[index] = 0;
+		index++;
+	}
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*output;
+
+	output = malloc(nmemb * size);
+	if (output == 0)
+		return (0);
+	ft_bzero(output, (nmemb * size));
+	return (output);
+}
+
+char	*ft_strchr(const char *str, int to_find)
+{
+	int	index;
+
+	index = 0;
+	while (str[index] != '\0')
+	{
+		if (str[index] == (unsigned char)to_find)
+			return ((char *)&str[index]);
+		index++;
+	}
+	if (str[index] == (unsigned char)to_find)
+		return ((char *)&str[index]);
+	return (NULL);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
