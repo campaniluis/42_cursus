@@ -66,28 +66,27 @@ char	*buff_clean(char *buff)
 }
 
 // function to complete line if BUFFER_SIZE < line_size
-// char	*complete_line(char *str)
-// {
-// 	char			*rest_of_line;
-// 	static size_t	index;
+char	*complete_line(char *str)
+{
+	char			*rest_of_line;
+	static size_t	index;
 
-// 	counter = line_size(str);
-// 	rest_of_line = malloc(sizeof(char) * BUFFER_SIZE);
-// 	if (!rest_of_line)
-// 		return (NULL);
-// 	while (str[counter])
-// 	{
-// 		rest_of_line[counter] = str[counter];
-// 		counter++;
-// 	}
-// 	free(str);
-// 	if (index < counter)
-// 		complete_line(counter, str);
-// 	else
-// 		index = 0;
-// 	index = (index + BUFFER_SIZE);
-// 	return (rest_of_line);
-// }
+	counter = line_size(str);
+	rest_of_line = malloc(sizeof(char) * BUFFER_SIZE);
+	if (!rest_of_line)
+		return (NULL);
+	while (str[counter])
+	{
+		rest_of_line[counter] = str[counter];
+		counter++;
+	}
+	free(str);
+	if (index < counter)
+		complete_line(counter, str);
+	else
+		index = 0;
+	return (rest_of_line);
+}
 
 char	*get_next_line(int fd)
 {
@@ -107,16 +106,29 @@ char	*get_next_line(int fd)
 	}
 	else
 	{
-		printf("buff: %s\n", buff);
 		temp = buff_clean(buff);
+		if (!temp)
+			return (NULL);
 		index = read(fd, buff, BUFFER_SIZE);
-		rest_of_line = get_line(buff);
-		printf("temp: %s\n", temp);
-		printf("rest_of_line: %s\n", rest_of_line);
-		line = ft_strjoin(temp, rest_of_line);
-		printf("line: %s\n------------------\n", line);
+		if (ft_strchr(buff, '\n'))
+		{
+			rest_of_line = get_line(buff);
+			line = ft_strjoin(temp, rest_of_line);
+			return (line);
+		}
+		else if (ft_strchr(buff, '\0'))
+		{
+			if (buff[0] == '\0')
+				return (NULL);
+			else
+				return (get_line(buff));
+		}
+		else
+		{
+			rest_of_line = complete_line(buff);
+			return (ft_strjoin(buff, complete_line(buff)));
+		}
 	}
-	return (line);
 }
 
 int	main(void)
