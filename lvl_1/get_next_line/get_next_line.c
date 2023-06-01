@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:12:11 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/01 19:26:30 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/01 20:39:46 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,68 +65,50 @@ char	*buff_clean(char *buff)
 }
 
 // function to complete line if BUFFER_SIZE < line_size
-char	*complete_line(int fd, char *str)
+// CURRENTLY NOT USED
+char	*complete_line(int fd, char *buff)
 {
-	char		*rest_of_line;
+	char	*temp;
+	size_t	index;
 
-	rest_of_line = malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (!rest_of_line)
-		return (NULL);
-	read(fd, rest_of_line, BUFFER_SIZE);
-	if (!ft_strchr(rest_of_line, '\n') && !ft_strchr(rest_of_line, '\0'))
-		complete_line(fd, str);
-	else
-		return (rest_of_line);
-	return (rest_of_line);
+	while (!ft_strchr(buff, '\n'))
+	{
+		printf("I AM HERE!!!");
+		temp = get_line(buff);
+		index = read(fd, buff, BUFFER_SIZE);
+		buff[index] = 0;
+		temp = ft_strjoin(temp, buff);
+	}
+	return (temp);
 }
 
 char	*get_next_line(int fd)
 {
 	static char		buff[BUFFER_SIZE + 1];
 	char			*temp;
-	char			*line;
 	size_t			index;
 
 	if (!buff[0])
 	{
 		index = read(fd, buff, BUFFER_SIZE);
-		buff[index] = '\0';
+		buff[index] = 0;
 		if (index == 0)
 			return (NULL);
-		else
-		{
-			printf("\nLOOP:");
-			while (!ft_strchr(buff, '\n'))
-			{
-				temp = get_line(buff);
-				index = read(fd, buff, BUFFER_SIZE);
-				buff[index] = '\0';
-				line = ft_strjoin(temp, buff);
-				printf("\nnew_loop: %s\n", line);
-				buff_clean(buff);
-			}
-			return (line);
-		}
 	}
-	else
+	if (ft_strchr(buff, '\n'))
 	{
-		printf("\nValor do buff entrando: %s\n", buff);
-		if (ft_strchr(buff, '\n'))
-		{
-			printf("I'M HERE!");
-			temp = get_line(buff);
-			buff_clean(buff);
-			return (temp);
-		}
-		else if (ft_strchr(buff, '\0'))
-		{
-			if (buff[0] == '\0')
-				return (NULL);
-			else
-			temp = get_line(buff);
-			buff_clean(buff);
-			return (temp);
-		}
+		temp = get_line(buff);
+		buff_clean(buff);
+		return (temp);
+	}
+	// all buffs have a '\0' after them
+	if (!ft_strchr(buff, '\n') && !ft_strchr(buff, '\0'))
+		return (complete_line(fd, buff));
+	else if (ft_strchr(buff, '\0'))
+	{
+		temp = get_line(buff);
+		buff_clean(buff);
+		return (temp);
 	}
 	return (NULL);
 }

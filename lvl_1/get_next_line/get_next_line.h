@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:12:15 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/31 23:12:11 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/01 20:24:09 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 size_t	line_size(char *str);
 char	*get_line(char *str);
 char	*buff_clean(char *buff);
-char	*complete_line(int fd, char *str);
+char	*complete_line(int fd, char *buff);
 char	*get_next_line(int fd);
 
 #endif
