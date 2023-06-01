@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:12:11 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/31 23:13:38 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:26:30 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	line_size(char *str)
 	size_t	index;
 
 	index = 0;
+	if (!str)
+		return (0);
 	while (str[index] && str[index] != '\n')
 		index++;
 	if (str[index] == '\n')
@@ -38,7 +40,7 @@ char	*get_line(char *str)
 		line[index] = str[index];
 		index++;
 	}
-	if (!ft_strchr(str, '\n'))
+	if (str[index] == '\n')
 		line[index++] = '\n';
 	line[index] = '\0';
 	return (line);
@@ -47,21 +49,19 @@ char	*get_line(char *str)
 // Stores in the cumulative static variable the new updated variable with whatever is left from the original, minus the line extracted.
 char	*buff_clean(char *buff)
 {
-	int	counter;
-	int	index;
-	char *clear_buff;
-	
-	clear_buff = malloc(sizeof(char) * BUFFER_SIZE + 1);
+	int		counter;
+	int		index;
+
 	counter = line_size(buff);
 	index = 0;
 	while (index <= BUFFER_SIZE - counter)
 	{
-		clear_buff[index] = buff[counter + index];
+		buff[index] = buff[counter + index];
 		index++;
 	}
 	while (index < BUFFER_SIZE)
-		clear_buff[index++] = '\0';
-	return (clear_buff);
+		buff[index++] = '\0';
+	return (buff);
 }
 
 // function to complete line if BUFFER_SIZE < line_size
@@ -83,67 +83,50 @@ char	*complete_line(int fd, char *str)
 char	*get_next_line(int fd)
 {
 	static char		buff[BUFFER_SIZE + 1];
-	static char			*temp;
-	// char			*line;
-	// char			*rest_of_line;
+	char			*temp;
+	char			*line;
 	size_t			index;
 
-	printf("\n\n\n\nNOVO TESTE\n\nValor da temp entrando: %s\n", temp);
 	if (!buff[0])
-	{	
+	{
 		index = read(fd, buff, BUFFER_SIZE);
+		buff[index] = '\0';
 		if (index == 0)
 			return (NULL);
-		if (ft_strchr(buff, '\n'))
-			return (get_line(buff));
+		else
+		{
+			printf("\nLOOP:");
+			while (!ft_strchr(buff, '\n'))
+			{
+				temp = get_line(buff);
+				index = read(fd, buff, BUFFER_SIZE);
+				buff[index] = '\0';
+				line = ft_strjoin(temp, buff);
+				printf("\nnew_loop: %s\n", line);
+				buff_clean(buff);
+			}
+			return (line);
+		}
 	}
 	else
 	{
+		printf("\nValor do buff entrando: %s\n", buff);
 		if (ft_strchr(buff, '\n'))
 		{
-			if (temp && ft_strchr(temp, '\n'))
-				temp = buff_clean(temp);
-			else if (temp && !ft_strchr(temp, '\0'))
-			{
-				temp = buff_clean(temp);
-				if (temp[0] == '\0')
-					return (NULL);
-				else
-					return (get_line(temp));
-			}
-			else
-				temp = buff_clean(buff);
-			return (get_line(temp));
+			printf("I'M HERE!");
+			temp = get_line(buff);
+			buff_clean(buff);
+			return (temp);
 		}
-	// 	temp = buff_clean(buff);
-	// 	if (!temp)
-	// 		return (NULL);
-	// 	else if (ft_strchr(temp, '\n'))
-	// 	{
-	// 		return (get_line(temp));
-	// 		temp = buff_clean(temp);
-	// 	}
-	// 	index = read(fd, buff, BUFFER_SIZE);
-	// 	if (ft_strchr(buff, '\n'))
-	// 	{
-	// 		rest_of_line = get_line(buff);
-	// 		printf("\n\n\nrest_of_line: %s\n", rest_of_line);
-	// 		printf("temp: %s\n", temp);
-	// 		line = ft_strjoin(temp, rest_of_line);
-	// 		return (line);
-	// 	}
-	// 	else if (ft_strchr(buff, '\0'))
-	// 	{
-	// 		if (buff[0] == '\0')
-	// 			return (NULL);
-	// 		else
-	// 			return (get_line(buff));
-	// 	}
-	// 	else
-	// 	{
-	// 		line = complete_line(fd, buff);
-	// 		return (ft_strjoin(buff, line));
-	// 	}
+		else if (ft_strchr(buff, '\0'))
+		{
+			if (buff[0] == '\0')
+				return (NULL);
+			else
+			temp = get_line(buff);
+			buff_clean(buff);
+			return (temp);
+		}
 	}
 	return (NULL);
 }

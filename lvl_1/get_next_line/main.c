@@ -7,23 +7,26 @@ int	main(void)
 	int		fd;
 
 	fd = open("text.txt", O_RDONLY);
-	printf("---- WELCOME TO THE GNL TESTER SHOW!! ----\nBuff size: %d                      | | | |\n", BUFFER_SIZE);
+	printf("---- WELCOME TO THE GNL TESTER SHOW!! ----\nBuff size: %d                            |\n", BUFFER_SIZE);
 	printf("------------------------------------------\n\nReading first line:\n");
 	line = get_next_line(fd);
-		printf("%s\n", line);
+		printf("line 1 content:\n%s\n", line);
     free(line);
+	printf("------------------------------------------\n\nReading second line:\n");
 		line = get_next_line(fd);
 	if (line)
-		printf("\nSecond line:\n%s\n", line);
+		printf("\nline 2 content:\n%s\n", line);
 	else
 		printf("NULL\n");
 	free(line);
+	printf("------------------------------------------\n\nReading third line:\n");
 	line = get_next_line(fd);
 	if (line)
 		printf("\nThird line: \n%s\n", line);
 	else
 		printf("NULL\n");
 	free(line);
+	printf("------------------------------------------\n\nReading empty line:\n");
 	line = get_next_line(fd);
 	if (line == NULL)
 		printf("\nCONGRATS! YOU'VE READ A FILE\n");
