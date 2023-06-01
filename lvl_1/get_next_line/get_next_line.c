@@ -45,28 +45,28 @@ size_t	line_size(char *str)
 	return (index);
 }
 
+// Stores in the cumulative static variable the new updated variable with whatever is left from the original, minus the line extracted.
 char	*buff_clean(char *buff)
 {
 	int	counter;
 	int	index;
-
+	char *clear_buff;
+	
+	clear_buff = malloc(sizeof(char) * BUFFER_SIZE + 1);
 	counter = line_size(buff);
-	printf("\nLine size: %d\n", counter);
 	index = 0;
 	while (index <= BUFFER_SIZE - counter)
 	{
-		buff[index] = buff[counter + index];
+		clear_buff[index] = buff[counter + index];
 		index++;
 	}
 	while (index < BUFFER_SIZE)
-		buff[index++] = '\0';
-	printf("\nPost clean line size: %ld\n", line_size(buff));
-	return (buff);
+		clear_buff[index++] = '\0';
+	return (clear_buff);
 }
 
-// Stores in the cumulative static variable the new updated variable with whatever is left from the original, minus the line extracted.
 // function to complete line if BUFFER_SIZE < line_size
-// char	*complete_line(size_t counter, char *str)
+// char	*complete_line(char *str)
 // {
 // 	char			*rest_of_line;
 // 	static size_t	index;
@@ -91,10 +91,11 @@ char	*buff_clean(char *buff)
 
 char	*get_next_line(int fd)
 {
-	static char	buff[BUFFER_SIZE + 1];
-	char		*temp;
-	char		*line;
-	size_t		index;
+	static char		buff[BUFFER_SIZE + 1];
+	const char		*temp;
+	char			*line;
+	char			*rest_of_line;
+	size_t			index;
 
 	if (!buff[0])
 	{	
@@ -104,13 +105,16 @@ char	*get_next_line(int fd)
 		if (ft_strchr(buff, '\n'))
 			return (get_line(buff));
 	}
-	// se tiver buffer, passar do buffer pra linha até \n ou \0
 	else
 	{
+		printf("buff: %s\n", buff);
 		temp = buff_clean(buff);
 		index = read(fd, buff, BUFFER_SIZE);
-		if (ft_strchr(buff, '\n'))
-			line = ft_strjoin(temp, get_line(buff));
+		rest_of_line = get_line(buff);
+		printf("temp: %s\n", temp);
+		printf("rest_of_line: %s\n", rest_of_line);
+		line = ft_strjoin(temp, rest_of_line);
+		printf("line: %s\n------------------\n", line);
 	}
 	return (line);
 }
@@ -121,27 +125,33 @@ int	main(void)
 	int		fd;
 
 	fd = open("text.txt", O_RDONLY);
-	printf("First line:\n");
+	// printf("First line:\n");
 	line = get_next_line(fd);
-	printf("Acctual 1st line size: %ld\n", line_size("«Nel mezzo del cammin di nostra vita\n"));
-	if (line)
-		printf("%s\n", line);
-	else
-		printf("NULL\n");
+	// if (line)
+	// 	printf("\nSecond line:%s\n", line);
+	// else
+	// 	printf("NULL\n");
 	free(line);
-	printf("\nSecond line:\n");
+	// printf("\nSecond line:\n");
 		line = get_next_line(fd);
-	printf("Acctual 2nd line size: %ld\n", line_size("mi ritrovai per una selva oscura,\n"));
+	// if (line)
+	// 	printf("\nSecond line:\n%s\n", line);
+	// else
+	// 	printf("NULL\n");
+	free(line);
+	line = get_next_line(fd);
 	if (line)
-		printf("\n%s\n", line);
+		printf("\nThird line: \n%s\n", line);
 	else
 		printf("NULL\n");
 	free(line);
 	line = get_next_line(fd);
-	if (line)
-		printf("\nThird line: %s\n", line);
+	if (line == NULL)
+		printf("\nCONGRATS! YOU'VE READ A FILE\n");
 	else
-		printf("NULL\n");
+		printf("\nSomething's wrong in the end: \n%s\n", line);
+
 	free(line);
+
 	return (0);
 }
