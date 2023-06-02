@@ -6,13 +6,12 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:12:11 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/02 08:54:23 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/02 21:18:59 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-// function to measure line
 size_t	line_size(char *str)
 {
 	size_t	index;
@@ -27,13 +26,12 @@ size_t	line_size(char *str)
 	return (index);
 }
 
-// Extracts the line (ending in either line break and `\0` or only `\0` in EOF) from static variable.
 char	*get_line(char *str)
 {
 	int		index;
 	char	*line;
 
-	line = malloc(sizeof(char) * (line_size(str) + 1));
+	line = malloc(sizeof(char) * (line_size(str) + 1)); // III ends there here
 	if (!line)
 		return (NULL);
 	index = 0;
@@ -48,7 +46,6 @@ char	*get_line(char *str)
 	return (line);
 }
 
-// Stores in the cumulative static variable the new updated variable with whatever is left from the original, minus the line extracted.
 char	*buff_clean(char *buff)
 {
 	int		counter;
@@ -66,20 +63,19 @@ char	*buff_clean(char *buff)
 	return (buff);
 }
 
-// function to complete line if BUFFER_SIZE < line_size
 char	*complete_line(int fd, char *buff)
 {
-	char	*temp;
+	char	*line;
 	size_t	index;
 
-	temp = get_line(buff);
+	line = get_line(buff);
 	while (!ft_strchr(buff, '\n') && buff[0] != '\0')
 	{
 		index = read(fd, buff, BUFFER_SIZE);
 		buff[index] = 0;
-		temp = ft_strjoin(temp, get_line(buff));
+		line = ft_strjoin(line, get_line(buff)); // II goes here
 	}
-	return (temp);
+	return (line);
 }
 
 char	*get_next_line(int fd)
@@ -89,8 +85,11 @@ char	*get_next_line(int fd)
 	char			*line;
 	size_t			index;
 
-	if (fd < 0)
+	if (read(fd, 0, 0) < 0)
+	{
+		buff[0] = 0;
 		return (NULL);
+	}
 	if (!buff[0])
 	{
 		index = read(fd, buff, BUFFER_SIZE);
@@ -106,13 +105,14 @@ char	*get_next_line(int fd)
 	}
 	if (buff[BUFFER_SIZE] == '\0')
 	{
-		line = complete_line(fd, buff);
-		temp = get_line(buff);
+		line = complete_line(fd, buff); // I starts here
 		buff_clean(buff);
 		return (line);
 	}
 	temp = get_line(buff);
 	buff_clean(buff);
 	if (buff != '\0')
-		return (temp);		
+		return (temp);
+	else
+		free(temp);
 }

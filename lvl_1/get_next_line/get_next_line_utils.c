@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:12:05 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/30 12:26:14 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/02 21:00:26 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		new[index + counter] = s2[counter];
 		counter++;
 	}
+	free((char *)s1);
 	return (new);
 }
