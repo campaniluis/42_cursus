@@ -45,7 +45,6 @@ char	*get_line(char *str)
 	if (str[index] == '\n')
 		line[index++] = '\n';
 	line[index] = '\0';
-	free(line);
 	return (line);
 }
 
@@ -76,11 +75,6 @@ char	*complete_line(int fd, char *buff)
 	temp = get_line(buff);
 	while (!ft_strchr(buff, '\n') && buff[0] != '\0')
 	{
-		if (read(fd, 0, 0) < 0)
-		{
-			buff[0] = 0;
-			return (NULL);
-		}
 		index = read(fd, buff, BUFFER_SIZE);
 		buff[index] = 0;
 		temp = ft_strjoin(temp, get_line(buff));
@@ -95,13 +89,10 @@ char	*get_next_line(int fd)
 	char			*line;
 	size_t			index;
 
+	if (fd < 0)
+		return (NULL);
 	if (!buff[0])
 	{
-		if (read(fd, 0, 0) < 0)
-		{
-			buff[0] = 0;
-			return (NULL);
-		}
 		index = read(fd, buff, BUFFER_SIZE);
 		buff[index] = 0;
 		if (index == 0)
