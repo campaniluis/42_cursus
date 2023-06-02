@@ -12,7 +12,7 @@
 
 #include "libprintf.h"
 
-char *printf(int count, ...)
+int ft_printf(const char *, ...);
 {
     
 }
