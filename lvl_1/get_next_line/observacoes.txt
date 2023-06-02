@@ -9,3 +9,5 @@ p (v name) == print variable
 
 
 qual a diferenca entre um buff com metade de uma linha e um buff que chega ate o fim?
+
+you don't necessarely have filled all the buffer when you reach the end of the text, where if your '\0' is in the middle of the text, you have.

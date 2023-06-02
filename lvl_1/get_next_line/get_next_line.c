@@ -65,19 +65,17 @@ char	*buff_clean(char *buff)
 }
 
 // function to complete line if BUFFER_SIZE < line_size
-// CURRENTLY NOT USED
 char	*complete_line(int fd, char *buff)
 {
 	char	*temp;
 	size_t	index;
 
-	while (!ft_strchr(buff, '\n'))
+	temp = get_line(buff);
+	while (!ft_strchr(buff, '\n') && buff[0] != '\0')
 	{
-		printf("I AM HERE!!!");
-		temp = get_line(buff);
 		index = read(fd, buff, BUFFER_SIZE);
 		buff[index] = 0;
-		temp = ft_strjoin(temp, buff);
+		temp = ft_strjoin(temp, get_line(buff));
 	}
 	return (temp);
 }
@@ -86,10 +84,12 @@ char	*get_next_line(int fd)
 {
 	static char		buff[BUFFER_SIZE + 1];
 	char			*temp;
+	char			*line;
 	size_t			index;
 
 	if (!buff[0])
 	{
+		printf("buff is empty\n");
 		index = read(fd, buff, BUFFER_SIZE);
 		buff[index] = 0;
 		if (index == 0)
@@ -97,18 +97,23 @@ char	*get_next_line(int fd)
 	}
 	if (ft_strchr(buff, '\n'))
 	{
+		printf("buff has a line break\n");
 		temp = get_line(buff);
 		buff_clean(buff);
 		return (temp);
 	}
 	// all buffs have a '\0' after them
-	if (!ft_strchr(buff, '\n') && !ft_strchr(buff, '\0'))
-		return (complete_line(fd, buff));
-	else if (ft_strchr(buff, '\0'))
+	if (buff[BUFFER_SIZE] == '\0')
 	{
+		printf("buff is smaller than line\n");
+		line = complete_line(fd, buff);
 		temp = get_line(buff);
 		buff_clean(buff);
-		return (temp);
+		return (line);
+
 	}
-	return (NULL);
+	temp = get_line(buff);
+	buff_clean(buff);
+	if (buff != '\0')
+		return (temp);		
 }
