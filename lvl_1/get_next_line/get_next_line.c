@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:12:11 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/01 20:39:46 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/02 08:54:23 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char	*get_line(char *str)
 	char	*line;
 
 	line = malloc(sizeof(char) * (line_size(str) + 1));
+	if (!line)
+		free(line);
 	index = 0;
 	while (str[index] && str[index] != '\n')
 	{
@@ -89,7 +91,6 @@ char	*get_next_line(int fd)
 
 	if (!buff[0])
 	{
-		printf("buff is empty\n");
 		index = read(fd, buff, BUFFER_SIZE);
 		buff[index] = 0;
 		if (index == 0)
@@ -97,15 +98,12 @@ char	*get_next_line(int fd)
 	}
 	if (ft_strchr(buff, '\n'))
 	{
-		printf("buff has a line break\n");
 		temp = get_line(buff);
 		buff_clean(buff);
 		return (temp);
 	}
-	// all buffs have a '\0' after them
 	if (buff[BUFFER_SIZE] == '\0')
 	{
-		printf("buff is smaller than line\n");
 		line = complete_line(fd, buff);
 		temp = get_line(buff);
 		buff_clean(buff);
