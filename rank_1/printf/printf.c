@@ -27,5 +27,6 @@ int ft_printf(const char *format, ...)
 	if (format[index] == '\0')
 		return (index);
 	// va_arg(args, ) // the first arg specifies what the other args will be
+	va_end(args);
 	return (index);
 }
