@@ -97,12 +97,6 @@ char	*get_next_line(int fd)
 		if (index == 0)
 			return (NULL);
 	}
-	if (buff[BUFFER_SIZE] == '\0')
-	{
-		line = complete_line(fd, buff); // I starts here
-		return (line);
-	}
-	line = get_line(buff);
-	buff_clean(buff);
+	line = complete_line(fd, buff); // I starts here
 	return (line);
 }
