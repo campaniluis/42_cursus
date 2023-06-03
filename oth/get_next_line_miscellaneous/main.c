@@ -5,7 +5,7 @@ int	main(void)
 	char	*line;
 	int		fd;
 
-	fd = open("text.txt", O_RDONLY);
+	fd = open("1char.txt", O_RDONLY);
 	line = get_next_line(fd);
 		printf("line 1 content:\n%s\n", line);
     free(line);
