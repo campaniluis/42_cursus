@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   libprintf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 12:11:58 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/30 12:13:22 by lclaudio         ###   ########.fr       */
+/*   Created: 2023/05/30 12:11:51 by lclaudio          #+#    #+#             */
+/*   Updated: 2023/05/30 12:11:56 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-int ft_printf(const char *format, ...)
-{
-	int		index;
-	va_list	args;
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdarg.h>
 
-	va_start(args, format);
-	index = 0;
-	while (format[index] != '%')
-	{
-		write(1, &format[index], 1);
-		index++;
-	}
-	if (format[index] == '\0')
-		return (index);
-	// va_arg(args, ) // the first arg specifies what the other args will be
-	return (index);
-}
+int ft_printf(const char *, ...);
+char	*ft_strchr(const char *str, int to_find);
+
+#endif
