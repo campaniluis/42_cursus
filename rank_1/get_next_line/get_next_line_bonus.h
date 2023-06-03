@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:12:15 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/03 12:24:34 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/03 17:51:22 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # endif
 
 # include <stdlib.h>
-# include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
 
@@ -31,7 +30,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 
 // get_next_line.c
 size_t	line_size(char *str);
-char	*get_line(char *str);
+char	*get_a_line(char *str);
 char	*buff_clean(char *buff);
 char	*complete_line(int fd, char *buff);
 char	*get_next_line(int fd);
