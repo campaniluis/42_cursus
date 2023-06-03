@@ -63,22 +63,6 @@ char	*ft_strchr(const char *str, int to_find)
 	return (NULL);
 }
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
-{
-	size_t	index;
-
-	index = 0;
-	if (dstsize < 1)
-		return (ft_strlen((char *)src));
-	while (index < (dstsize - 1) && src[index] != '\0')
-	{
-		dest[index] = src[index];
-		index++;
-	}
-	dest[index] = '\0';
-	return (ft_strlen((char *)src));
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*new;
@@ -102,5 +86,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		counter++;
 	}
 	free((char *)s1);
+	free((char *)s2);
 	return (new);
 }
