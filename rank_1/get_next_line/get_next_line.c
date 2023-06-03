@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:12:11 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/03 12:24:02 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/03 13:29:20 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	line_size(char *str)
 	return (index);
 }
 
-char	*get_line(char *str)
+char	*get_a_line(char *str)
 {
 	int		index;
 	char	*line;
@@ -68,12 +68,12 @@ char	*complete_line(int fd, char *buff)
 	char	*line;
 	size_t	index;
 
-	line = get_line(buff);
+	line = get_a_line(buff);
 	while (!ft_strchr(buff, '\n') && buff[0] != '\0')
 	{
 		index = read(fd, buff, BUFFER_SIZE);
 		buff[index] = 0;
-		line = ft_strjoin(line, get_line(buff));
+		line = ft_strjoin(line, get_a_line(buff));
 	}
 	buff_clean(buff);
 	return (line);
