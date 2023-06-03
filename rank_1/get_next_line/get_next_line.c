@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:12:11 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/02 22:02:35 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/03 12:24:02 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*get_line(char *str)
 	int		index;
 	char	*line;
 
-	line = malloc(sizeof(char) * (line_size(str) + 1)); // III ends there here
+	line = malloc(sizeof(char) * (line_size(str) + 1));
 	if (!line)
 		return (NULL);
 	index = 0;
@@ -73,7 +73,7 @@ char	*complete_line(int fd, char *buff)
 	{
 		index = read(fd, buff, BUFFER_SIZE);
 		buff[index] = 0;
-		line = ft_strjoin(line, get_line(buff)); // II goes here
+		line = ft_strjoin(line, get_line(buff));
 	}
 	buff_clean(buff);
 	return (line);
@@ -97,6 +97,6 @@ char	*get_next_line(int fd)
 		if (index == 0)
 			return (NULL);
 	}
-	line = complete_line(fd, buff); // I starts here
+	line = complete_line(fd, buff);
 	return (line);
 }
