@@ -6,11 +6,11 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:12:11 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/03 17:45:17 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/04 10:47:37 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	line_size(char *str)
 {
@@ -81,13 +81,14 @@ char	*complete_line(int fd, char *buff)
 
 char	*get_next_line(int fd)
 {
-	static char		buff[4096][BUFFER_SIZE + 1];
+	static char		buff[FOPEN_MAX][BUFFER_SIZE + 1];
 	char			*line;
 	size_t			index;
 
-	if (read(fd, 0, 0) < 0)
+	if (read(fd, 0, 0) < 0 || fd >= FOPEN_MAX)
 	{
-		buff[fd][0] = 0;
+		if (fd < FOPEN_MAX && fd > 0)
+			buff[fd][0] = 0;
 		return (NULL);
 	}
 	if (!buff[fd][0])
