@@ -14,23 +14,28 @@
 
 int ft_printf(const char *format, ...)
 {
-	int		index;
+	size_t	index;
 	va_list	args;
-	char 	flag;
+	// char	flag;
 
 	va_start(args, format);
 	index = 0;
-	while (format[index] != '%')
+	while (format[index] != '\0')
 	{
-		write(1, &format[index], 1);
-		index++;
-	}
-	if (flag = trigger(format, "cspdiuxX-0.# +"))
-	{
-		if (ft_isalpha(flag))
-			required(format, args, flag);
+		if (format[index] == '%')
+		{
+			index++;
+			if (ft_isalpha(format[index]))
+				required(format[index]);
+			else if (format[index] == '%')
+				write(1, &format[index], 1);
+			else
+				bonus(format, format[index], index);
+			index++;
+		}
 		else
-			bonus(format, args, flag);
+			write(1, &format[index], 1);
+		index++;
 	}
 	// va_arg(args, type) // the first arg specifies what the other args will be
 
