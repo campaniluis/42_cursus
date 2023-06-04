@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:12:15 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/03 17:51:22 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/04 10:23:08 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 // get_next_line_utils.c
 void	ft_bzero(void *ptr, size_t limit);
