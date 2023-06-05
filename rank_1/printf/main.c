@@ -2,9 +2,7 @@
 
 int main(void)
 {
-    int index;
-
-    index = ft_printf("Hello World!\n");
-    printf("ft_printf returned: %d\n", index);
+    ft_printf("this is bonus %.197\n");
+    ft_printf("and this is required: %d\n");
     return (0);
 }
