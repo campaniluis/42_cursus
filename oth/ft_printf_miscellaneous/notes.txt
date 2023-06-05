@@ -9,3 +9,7 @@ type --> create a linked list with the possible types?
 flags --> should I dare? Think about the tradeoff: will what I might learn here give me a better position later?
 
 https://man7.org/linux/man-pages/man3/printf.3.html
+
+
+
+%[$][flags][width][.precision][length modifier]conversion
