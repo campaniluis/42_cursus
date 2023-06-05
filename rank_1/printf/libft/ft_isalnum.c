@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 12:11:58 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/30 12:13:22 by lclaudio         ###   ########.fr       */
+/*   Created: 2023/04/21 08:09:05 by lclaudio          #+#    #+#             */
+/*   Updated: 2023/04/23 13:08:56 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+int	ft_isalnum(int c)
 {
-	int		index;
-	va_list	args;
-
-	va_start(args, format);
-	index = 0;
-	while (format[index] != '%')
-	{
-		write(1, &format[index], 1);
-		index++;
-	}
-	if (format[index] == '\0')
-		return (index);
-	// va_arg(args, ) // the first arg specifies what the other args will be
-	va_end(args);
-	return (index);
+	if (c >= '0' && '9' >= c)
+		return (1);
+	else if (c >= 'a' && 'z' >= c)
+		return (1);
+	else if (c >= 'A' && 'Z' >= c)
+		return (1);
+	else
+		return (0);
 }
