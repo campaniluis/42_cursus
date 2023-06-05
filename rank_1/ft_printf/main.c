@@ -2,7 +2,15 @@
 
 int main(void)
 {
-    ft_printf("this is bonus %.197\n");
-    ft_printf("and this is required: %d\n");
+    int num;
+    int nbr;
+    int digits;
+
+    num = 13;
+    nbr = 42;
+    digits = 1;
+    ft_printf("Testing: %-d\n\n", num, nbr);
+    ft_printf("Testing: %0d\n\n", num, nbr);
+    ft_printf("Testing: %.*d\n\n", digits, nbr);
     return (0);
 }

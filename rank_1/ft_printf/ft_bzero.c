@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/21 08:10:02 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/04/23 16:32:42 by lclaudio         ###   ########.fr       */
+/*   Created: 2023/04/23 10:04:10 by lclaudio          #+#    #+#             */
+/*   Updated: 2023/06/05 10:25:44 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-char	*ft_strdup(char *str)
+void	ft_bzero(void *ptr, size_t limit)
 {
-	int		index;
-	int		counter;
-	char	*new_str;
+	size_t	index;
 
 	index = 0;
-	counter = 0;
-	while (str[counter] != '\0')
-			counter++;
-	new_str = (char *)malloc(counter + 1);
-	if (new_str == NULL)
-		return (0);
-	while (index < counter)
+	while (index < limit)
 	{
-		new_str[index] = str[index];
+		((char *)ptr)[index] = 0;
 		index++;
 	}
-	new_str[index] = '\0';
-	return (new_str);
 }

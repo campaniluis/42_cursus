@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 08:09:25 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/05/01 19:10:08 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/05 10:27:28 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,10 @@ char	*ft_itoa(int n)
 	char	*str;
 	int		flag;
 	int		index;
-	int		counter;
 	int		buff;
 
 	flag = (n < 0);
 	index = 0 + flag;
-	counter = 0 + flag;
 	buff = n;
 	if (n == 0 || n == -2147483648 || n == 2147483647)
 	{
