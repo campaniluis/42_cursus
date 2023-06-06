@@ -16,7 +16,6 @@ char	*flag_reader(const char *format, size_t index)
 		counter++;
 	}
 	// se for um char da struct
-	
 	// voce vai pegar a struct
 	// ver se eh asterisco
 	// e salvar o valor
@@ -113,7 +112,33 @@ int	bonus_point(const char *format, size_t index, va_list args)
 	return (0);
 }
 
+// int	bonus_hashtag(const char *format, size_t index, va_list args)
+// {
 
+// }
+
+// int	bonus_space(const char *format, size_t index, va_list args)
+// {
+
+// }
+
+int	bonus_plus(const char *format, size_t index, va_list args)
+{
+	// int		counter;
+	char	*next_arg;
+	char	plus;
+
+	index++;
+	// counter = 0;
+	plus = '+';
+	if (trigger(format[index], "diuxX"))
+	{
+		next_arg = required(format[index], args);
+		if (next_arg[0] != '-')
+			write(1, &plus, 1);
+	}
+	return (0);
+}
 //
 void	bonus(const char *format, char c, size_t index, va_list args)
 {
@@ -124,7 +149,11 @@ void	bonus(const char *format, char c, size_t index, va_list args)
 	if (c == '0')
 		bonus_zero(format, index, args);
     if (c == '.')
-		{
-			bonus_point(format, index, args);
-		}
+		bonus_point(format, index, args);
+    // if (c == '#')
+	// 	bonus_hashtag(format, index, args);
+    // if (c == ' ')
+	// 	bonus_space(format, index, args);
+    if (c == '+')
+		bonus_plus(format, index, args);
 }

@@ -18,15 +18,15 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-// typedef struct s_flags
-// {
-// 	int	zero;
-// 	int	minus;
-// 	int	point;
-// 	int	hashtag;
-// 	int	plus;
-// 	int	space;
-// }t_flags;
+typedef struct s_flags
+{
+	int	zero;
+	int	minus;
+	int	point;
+	int	hashtag;
+	int	plus;
+	int	space;
+}t_flags;
 
 // libft functions
 int		ft_atoi(const char *str);
@@ -43,12 +43,17 @@ char	*ft_strdup(char *str);
 // printf.c
 int		ft_printf(const char *, ...);
 // printf_utils.c
+size_t	not_alpha_len(const char *str, size_t index);
 int		trigger(const char c, char *flags);
 
 // ft_printf_flags.c
+char	*flag_reader(const char *format, size_t index);
 char	*required(char c, va_list args);
 int		bonus_minus(const char *format, size_t index, va_list args);
 int		bonus_zero(const char *format, size_t index, va_list args);
 int		bonus_point(const char *format, size_t index, va_list args);
+// int 	bonus_hashtag(const char *format, size_t index, va_list args);
+// int		bonus_space(const char *format, size_t index, va_list args);
+int		bonus_plus(const char *format, size_t index, va_list args);
 void	bonus(const char *format, char c, size_t index, va_list args);
 #endif
