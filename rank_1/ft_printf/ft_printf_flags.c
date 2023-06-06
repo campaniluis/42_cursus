@@ -5,7 +5,7 @@ char	*flag_reader(const char *format, size_t index)
 {
 	char	*temp;
 	size_t	temp_len;
-	size_t		counter;
+	size_t	counter;
 
 	temp_len = not_alpha_len(format, index);
 	temp = malloc(temp_len * sizeof(char));
@@ -34,6 +34,7 @@ char	*required(char c, va_list args)
 	else
 		return (0);
 }
+
 // Double check if "sdiuxX" is true
 int	bonus_minus(const char *format, size_t index, va_list args)
 {
@@ -87,6 +88,7 @@ int	bonus_zero(const char *format, size_t index, va_list args)
 	}
 	return (0);
 }
+
 	// precisa de um while
 	// if so: the next va_arg will be the number of digits, and after that, the actual number to be printed
 int	bonus_point(const char *format, size_t index, va_list args)
@@ -127,15 +129,25 @@ int	bonus_plus(const char *format, size_t index, va_list args)
 	// int		counter;
 	char	*next_arg;
 	char	plus;
+	size_t	counter;
+	size_t	size;
 
 	index++;
 	// counter = 0;
 	plus = '+';
 	if (trigger(format[index], "diuxX"))
 	{
+		printf("I'M HERE: %c", format[index]);
 		next_arg = required(format[index], args);
+		size = ft_strlen(next_arg);
 		if (next_arg[0] != '-')
 			write(1, &plus, 1);
+		counter = 0;
+		while (counter < size)
+		{
+			write(1, &next_arg[counter], 1);
+			counter++;
+		}
 	}
 	return (0);
 }
