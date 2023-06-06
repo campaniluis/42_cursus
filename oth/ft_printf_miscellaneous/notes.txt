@@ -1,3 +1,5 @@
+gcc -Wall -Wextra -Werror *.c -o flag_tester && ./flag_tester
+
 External functions authorized: malloc, free, write, va_start, va_arg, va_copy, va_end
 
 
