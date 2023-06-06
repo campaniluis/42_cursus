@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:11:51 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/05 11:02:37 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/06 11:41:38 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
+
+// typedef struct s_flags
+// {
+// 	int	zero;
+// 	int	minus;
+// 	int	point;
+// 	int	hashtag;
+// 	int	plus;
+// 	int	space;
+// }t_flags;
 
 // libft functions
 int		ft_atoi(const char *str);

@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:11:58 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/05 12:09:38 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/06 11:40:38 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	ft_printf(const char *format, ...)
 {
 	size_t	index;
 	va_list	args;
+	// t_flags flag;
 
 	va_start(args, format);
 	index = 0;
