@@ -119,6 +119,7 @@ int	bonus_point(const char *format, size_t index, va_list args)
 
 // }
 
+// Double check if "sdiuxX" is true
 int	bonus_space(const char *format, size_t index, va_list args)
 {
 	char	*next_arg;
@@ -145,6 +146,7 @@ int	bonus_space(const char *format, size_t index, va_list args)
 
 }
 
+// Double check if "sdiuxX" is true
 int	bonus_plus(const char *format, size_t index, va_list args)
 {
 	char	*next_arg;
