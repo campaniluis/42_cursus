@@ -2,23 +2,20 @@
 
 int main(void)
 {
-    int num;
+    // int num;
     int nbr;
     // float   f;
-    int digits;
+    int neg_nbr;
 
-    num = 13;
+    // num = 13;
     nbr = 42;
     // f = 42.23244;
-    digits = 1;
-    ft_printf("Testing +d: %+d\n\n", nbr);
-    ft_printf("Testing -10: %-d\n\n", num, nbr);
-    ft_printf("Testing .*: %.*d\n\n", digits, nbr);
-    printf("Original 0*: %0*d\n\n", 13, nbr);
-    printf("Original +d*: %+d\n\n", nbr);
-    printf("Original -10: %.9d\n\n", nbr);
-   printf("Original .*: %.*d\n\n", 9, nbr);
-   printf("Original 0*: %0*d\n\n", 13, nbr);
+    neg_nbr = -42;
+    ft_printf("T1: % d\n\n", nbr);
+    printf("V1: % d\n\n", nbr);
+     ft_printf("T2: % d\n\n", neg_nbr);
+    printf("V2: % d\n\n", neg_nbr);
+
 
     return (0);
 }

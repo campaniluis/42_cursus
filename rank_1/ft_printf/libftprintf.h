@@ -53,7 +53,7 @@ int		bonus_minus(const char *format, size_t index, va_list args);
 int		bonus_zero(const char *format, size_t index, va_list args);
 int		bonus_point(const char *format, size_t index, va_list args);
 // int 	bonus_hashtag(const char *format, size_t index, va_list args);
-// int		bonus_space(const char *format, size_t index, va_list args);
+int		bonus_space(const char *format, size_t index, va_list args);
 int		bonus_plus(const char *format, size_t index, va_list args);
 void	bonus(const char *format, char c, size_t index, va_list args);
 #endif
