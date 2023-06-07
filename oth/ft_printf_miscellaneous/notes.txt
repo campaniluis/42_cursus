@@ -12,6 +12,7 @@ flags --> should I dare? Think about the tradeoff: will what I might learn here 
 
 https://man7.org/linux/man-pages/man3/printf.3.html
 
+REGEX: https://man7.org/linux/man-pages/man3/regcomp.3.html
 
 
 %[$][flags][width][.precision][length modifier]conversion

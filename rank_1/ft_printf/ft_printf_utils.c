@@ -12,6 +12,65 @@
 
 #include "libftprintf.h"
 
+int	numerus(const char* format, size_t index)
+{
+	char	*specif_str;
+	int		specif_arg;
+	size_t	counter;
+	size_t	len;
+
+	if (!ft_isdigit(format[index]))
+		return(0);
+	len = 0;
+	while (ft_isdigit(format[index + len]))
+		len++;
+	specif_str = malloc(sizeof(char) * len);
+	counter = 0;
+	while(counter < len)
+	{
+		specif_str[counter] = format[counter + index];
+		counter++;
+	}
+	specif_arg = ft_atoi(specif_str);
+	return(specif_arg);
+}
+
+int	asteriskos(const char* format, size_t index, va_list args)
+{
+	int	specif_arg;
+	if (format[index] == '*')
+	{
+		specif_arg = va_arg(args, int);
+		return(specif_arg);
+	}
+	return(0);
+}
+
+int	flag_size_finder(const char *temp, size_t  index, va_list args)
+{
+	int	size;
+
+    if (ft_isdigit(temp[index]))
+		size = numerus(temp, index);
+	else if (temp[index] == '*')
+        size = asteriskos(temp, index, args);
+	else
+		size = 0;
+    return(size);
+}
+
+void	write_argument(const char *arg, size_t arg_size)
+{
+	size_t	counter;
+
+	counter = 0;
+	while (counter < arg_size)
+	{	
+		write(1, &arg[counter], 1);
+		counter++;
+	}
+}
+
 size_t	not_alpha_len(const char *str, size_t index)
 {
 	size_t	counter;

@@ -43,8 +43,12 @@ char	*ft_strdup(char *str);
 // printf.c
 int		ft_printf(const char *, ...);
 // printf_utils.c
+int		asteriskos(const char* format, size_t index, va_list args);
+int		numerus(const char* format, size_t index);
+int	flag_size_finder(const char *temp, size_t  index, va_list args);
 size_t	not_alpha_len(const char *str, size_t index);
 int		trigger(const char c, char *flags);
+void	write_argument(const char *arg, size_t arg_size);
 
 // ft_printf_flags.c
 char	*flag_reader(const char *format, size_t index);
@@ -55,5 +59,5 @@ int		bonus_point(const char *format, size_t index, va_list args);
 // int 	bonus_hashtag(const char *format, size_t index, va_list args);
 int		bonus_space(const char *format, size_t index, va_list args);
 int		bonus_plus(const char *format, size_t index, va_list args);
-void	bonus(const char *format, char c, size_t index, va_list args);
+int		bonus(const char *format, char c, size_t index, va_list args);
 #endif

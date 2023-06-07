@@ -69,22 +69,24 @@ int	bonus_zero(const char *format, size_t index, va_list args)
 	int		size_next_arg;
 	char	*next_arg;
 
-	index++;
 	blanks = '0';
+	index++;
+	blanks_size = flag_size_finder(format, index, args);
+	// printf("Pre-incrementation index: %ld\n", index);
 	counter = 0;
-	if (format[index] == '*')
+	while(format[index + counter] == '*' || ft_isdigit(format[index + counter]))
+		counter++;
+	// printf("format[index] == '*' || digit: %c\n", format[index]);
+	// printf("Post-incrementation index: %ld\n", index);
+	if (trigger(format[index + counter], "sdiuxX"))
 	{
-		index++;
-		if (trigger(format[index], "sdiuxX"))
-		{
-			blanks_size = va_arg(args, int);
-			next_arg = required(format[index], args);
-			size_next_arg = ft_strlen(next_arg);
-			while (counter++ < blanks_size - size_next_arg)
-				write(1, &blanks, 1);
-			write(1, &next_arg[0], size_next_arg);
-			return (blanks_size);
-		}
+		next_arg = required(format[index + counter], args);
+		size_next_arg = ft_strlen(next_arg);
+		while (size_next_arg++ < blanks_size)
+			write(1, &blanks, 1);
+		write_argument(next_arg, size_next_arg);
+		// write(1, &next_arg[0], size_next_arg);
+		return (counter);
 	}
 	return (0);
 }
@@ -98,18 +100,14 @@ int	bonus_point(const char *format, size_t index, va_list args)
 	char	*next_arg;
 
 	index++;
-	if (format[index] == '*')
+	nbr_size = asteriskos(format, index, args);
+	counter = 0;
+	if (trigger(format[index], "sdiuxX"))
 	{
-		index++;
-		counter = 0;
-		if (trigger(format[index], "sdiuxX"))
-		{
-			nbr_size = va_arg(args, int);
-			next_arg = required(format[index], args);
-			while (counter++ < nbr_size)
-				write(1, &next_arg[0], 1);
-			return (nbr_size);
-		}
+		next_arg = required(format[index], args);
+		while (counter++ < nbr_size)
+			write(1, &next_arg[0], 1);
+		return (nbr_size);
 	}
 	return (0);
 }
@@ -158,7 +156,6 @@ int	bonus_plus(const char *format, size_t index, va_list args)
 	plus = '+';
 	if (trigger(format[index], "diuxX"))
 	{
-		printf("I'M HERE: %c", format[index]);
 		next_arg = required(format[index], args);
 		size = ft_strlen(next_arg);
 		if (next_arg[0] != '-')
@@ -174,15 +171,20 @@ int	bonus_plus(const char *format, size_t index, va_list args)
 }
 
 //
-void	bonus(const char *format, char c, size_t index, va_list args)
+int	bonus(const char *format, char c, size_t index, va_list args)
 {
+	size_t	counter;
 
+	counter = 0;
 // especifica o n de chars a ler do argumento
 	if (c == '-')
 		bonus_minus(format, index, args);
 	if (c == '0')
-		bonus_zero(format, index, args);
-    if (c == '.')
+	{
+		counter = counter + bonus_zero(format, index, args);
+		// printf("Counter value: %ld\n", counter);
+	}
+	if (c == '.')
 		bonus_point(format, index, args);
     // if (c == '#')
 	// 	bonus_hashtag(format, index, args);
@@ -190,4 +192,5 @@ void	bonus(const char *format, char c, size_t index, va_list args)
 		bonus_space(format, index, args);
     if (c == '+')
 		bonus_plus(format, index, args);
+	return (counter);
 }
