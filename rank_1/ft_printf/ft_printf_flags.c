@@ -61,9 +61,8 @@ int	bonus_minus(const char *format, size_t index, va_list args)
 }
 
 // Double check if "sdiuxX" is true
-int	bonus_zero(const char *format, size_t index, va_list args)
+int	bonus_zero(const char *format, size_t index, va_list args, int	size)
 {
-	int		blanks_size;
 	int		counter;
 	char	blanks;
 	int		size_next_arg;
@@ -71,21 +70,14 @@ int	bonus_zero(const char *format, size_t index, va_list args)
 
 	blanks = '0';
 	index++;
-	blanks_size = flag_size_finder(format, index, args);
-	// printf("Pre-incrementation index: %ld\n", index);
 	counter = 0;
-	while(format[index + counter] == '*' || ft_isdigit(format[index + counter]))
-		counter++;
-	// printf("format[index] == '*' || digit: %c\n", format[index]);
-	// printf("Post-incrementation index: %ld\n", index);
 	if (trigger(format[index + counter], "sdiuxX"))
 	{
 		next_arg = required(format[index + counter], args);
 		size_next_arg = ft_strlen(next_arg);
-		while (size_next_arg++ < blanks_size)
+		while (size_next_arg++ < size)
 			write(1, &blanks, 1);
 		write_argument(next_arg, size_next_arg);
-		// write(1, &next_arg[0], size_next_arg);
 		return (counter);
 	}
 	return (0);
@@ -170,10 +162,10 @@ int	bonus_plus(const char *format, size_t index, va_list args)
 	return (0);
 }
 
-//
 int	bonus(const char *format, char c, size_t index, va_list args)
 {
 	size_t	counter;
+	t_flags	flags;
 
 	counter = 0;
 // especifica o n de chars a ler do argumento
@@ -181,8 +173,8 @@ int	bonus(const char *format, char c, size_t index, va_list args)
 		bonus_minus(format, index, args);
 	if (c == '0')
 	{
-		counter = counter + bonus_zero(format, index, args);
-		// printf("Counter value: %ld\n", counter);
+		counter = counter + flag_size_finder(format, index, args);
+		flags.zero = bonus_zero(format, index, args, counter);
 	}
 	if (c == '.')
 		bonus_point(format, index, args);
@@ -192,5 +184,7 @@ int	bonus(const char *format, char c, size_t index, va_list args)
 		bonus_space(format, index, args);
     if (c == '+')
 		bonus_plus(format, index, args);
+	while(format[index + counter] == '*' || ft_isdigit(format[index + counter]))
+		counter++;
 	return (counter);
 }

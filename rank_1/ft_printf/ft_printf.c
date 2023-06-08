@@ -30,11 +30,7 @@ int	ft_printf(const char *format, ...)
 			else if (format[index] == '%')
 				write(1, &format[index], 1);
 			else if (trigger(format[index], " .0-#+"))
-			{
 				index = index + bonus(format, format[index], index, args);
-				// printf("Post bonus index value: %ld\n", index);
-				// printf("Expected value: 6\n");
-			}
 			index++;
 		}
 		else
