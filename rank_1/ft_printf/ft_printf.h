@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:11:51 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/22 14:42:55 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/22 21:04:29 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
-
+# define DEC "0123456789"
+# define HEX "0123456789abcdef"
 // ft_printf.c
-int		ft_printf(const char *, ...);
+int		required(char c, va_list args);
+int		ft_printf(const char *format, ...);
 // ft_printf_utils.c
-int		write_argument(const char *arg, size_t arg_size);
+int		ft_putstr(char *s);
+int		ft_putchar(char c);
+int		ft_putvoidptr(unsigned long voidptr);
+int		ft_putnbr(long long n, char *base, int base_size);
 
 #endif
