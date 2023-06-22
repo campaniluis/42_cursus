@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:11:58 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/22 21:04:21 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/22 23:09:05 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,14 @@ int	required(char c, va_list args)
 		counter += ft_putstr(va_arg(args, char *));
 	if (c == 'p')
 		counter += ft_putvoidptr(va_arg(args, unsigned long));
-	if (c == 'd')
-		counter += ft_putnbr(va_arg(args, unsigned int), DEC, 10);
-	if (c == 'i')
-		counter += ft_putnbr(va_arg(args, int), DEC, 10);
+	if (c == 'd' || c == 'i')
+		counter += ft_putnbr_neg(va_arg(args, int), DEC, 10);
 	if (c == 'u')
-		counter += ft_putnbr(va_arg(args, unsigned int), DEC, 10);
+		counter += ft_putnbr_neg(va_arg(args, unsigned int), DEC, 10);
 	if (c == 'x')
-		counter += ft_putnbr(va_arg(args, unsigned int), HEX, 16);
+		counter += ft_putnbr_neg(va_arg(args, unsigned int), HEX_min, 16);
 	if (c == 'X')
-		counter += ft_putnbr(va_arg(args, unsigned int), HEX, 16);
+		counter += ft_putnbr_neg(va_arg(args, unsigned int), HEX_MAX, 16);
 	return (counter);
 }
 

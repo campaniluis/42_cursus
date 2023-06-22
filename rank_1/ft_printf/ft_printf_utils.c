@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:11:58 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/22 21:04:43 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/22 23:16:04 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int	ft_putstr(char *s)
 	else
 	{
 		while (s[counter])
-		{
-			write(1, &s[counter], 1);
-			counter++;
-		}
+			counter += write(1, &s[counter], 1);
 	}
 	return (counter);
 }
@@ -45,16 +42,16 @@ int	ft_putvoidptr(unsigned long voidptr)
 
 	counter = 0;
 	if (!voidptr)
-		counter += write(1, "(null)", 6);
+		counter += write(1, "(nil)", 5);
 	else
 	{
 		counter += write(1, "0x", 2);
-		counter += ft_putnbr(voidptr, HEX, 16);
+		counter += ft_putnbr(voidptr, HEX_min, 16);
 	}
 	return (counter);
 }
 
-int	ft_putnbr(long long n, char *base, int base_size)
+int	ft_putnbr(unsigned long long n, char *base, unsigned int base_size)
 {
 	int	counter;
 	int	number;
@@ -62,7 +59,23 @@ int	ft_putnbr(long long n, char *base, int base_size)
 	counter = 0;
 	if (n > base_size)
 		counter += ft_putnbr((n / base_size), base, base_size);
+	if (n == base_size)
+		counter += write(1, "1", 1);
 	number = (n % base_size);
 	counter += write(1, &base[number], 1);
+	return (counter);
+}
+
+int	ft_putnbr_neg(long long n, char *base, int base_size)
+{
+	int	counter;
+
+	counter = 0;
+	if (n < 0)
+	{
+		counter += write(1, "-", 1);
+		n = (n * -1);
+	}
+	counter += ft_putnbr(n, base, base_size);
 	return (counter);
 }
