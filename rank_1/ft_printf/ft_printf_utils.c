@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:11:58 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/22 23:16:04 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/22 23:19:33 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_putvoidptr(unsigned long voidptr)
 	else
 	{
 		counter += write(1, "0x", 2);
-		counter += ft_putnbr(voidptr, HEX_min, 16);
+		counter += ft_putnbr(voidptr, HEX_MIN, 16);
 	}
 	return (counter);
 }

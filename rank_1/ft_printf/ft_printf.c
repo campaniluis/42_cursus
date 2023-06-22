@@ -6,7 +6,7 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:11:58 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/22 23:09:05 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/22 23:19:44 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	required(char c, va_list args)
 	if (c == 'u')
 		counter += ft_putnbr_neg(va_arg(args, unsigned int), DEC, 10);
 	if (c == 'x')
-		counter += ft_putnbr_neg(va_arg(args, unsigned int), HEX_min, 16);
+		counter += ft_putnbr_neg(va_arg(args, unsigned int), HEX_MIN, 16);
 	if (c == 'X')
 		counter += ft_putnbr_neg(va_arg(args, unsigned int), HEX_MAX, 16);
 	return (counter);

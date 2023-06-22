@@ -6,19 +6,19 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:11:51 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/22 23:16:15 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/22 23:21:47 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
 # define DEC "0123456789"
-# define HEX_min "0123456789abcdef"
+# define HEX_MIN "0123456789abcdef"
 # define HEX_MAX "0123456789ABCDEF"
 
 // ft_printf.c
