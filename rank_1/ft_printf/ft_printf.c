@@ -6,17 +6,29 @@
 /*   By: lclaudio <lclaudio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:11:58 by lclaudio          #+#    #+#             */
-/*   Updated: 2023/06/06 11:40:38 by lclaudio         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:00:10 by lclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
+required(char c, va_list args, int conv)
+{
+	if (c == 'd')
+	{
+		int		conv_spec;
+		char	*str;
+		
+		conv_spec = args;
+		str = ft_itoa(conv_spec);
+	}
+}
+
 int	ft_printf(const char *format, ...)
 {
 	size_t	index;
+	size_t	counter;
 	va_list	args;
-	// t_flags flag;
 
 	va_start(args, format);
 	index = 0;
@@ -25,16 +37,20 @@ int	ft_printf(const char *format, ...)
 		if (format[index] == '%')
 		{
 			index++;
-			if (ft_isalpha(format[index]))
-				required(format[index], args);
-			else if (format[index] == '%')
+			if (format[index] == '%')
+			{
 				write(1, &format[index], 1);
-			else if (trigger(format[index], " .0-#+"))
-				index = index + bonus(format, format[index], index, args);
+				counter++;
+			}
+			// else
+			// 	counter += required(format[index], args);
 			index++;
 		}
 		else
+		{
 			write(1, &format[index], 1);
+			counter++;
+		}
 		index++;
 	}
 	va_end(args);
