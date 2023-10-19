@@ -1,2 +1,0 @@
-ISO Standard for C: (ISO/IEC 9899:2018)
-https://www.iso.org/obp/ui/#iso:std:iso-iec:9899:ed-4:v1:en
